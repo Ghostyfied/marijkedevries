@@ -1,0 +1,422 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* ===========================
+   ======= Body style ========
+   =========================== */
+
+body {
+	background-color:#fff;
+	color: #000305;
+	font-size: 87.5%; /* Base font size: 14px */
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	line-height: 10px;
+
+	}
+
+.body {
+	clear: both;
+	margin: 0 auto;
+	width: 100%;
+}
+
+/* ===========================
+   ========= Headings ========
+   =========================== */
+h2 {font-size: 1.271em}	/* 22px */
+h3 {font-size: 1.429em}	/* 20px */
+h4 {font-size: 1.286em}	/* 18px */
+h5 {font-size: 1.143em}	/* 16px */
+h6 {font-size: 1em}		/* 14px */
+
+h2, h3, h4, h5, h6 {
+	font-weight: 400;
+	line-height: 1.1;
+	margin-bottom: .8em;
+}
+
+/* ===========================
+   ======= Anchor style ======
+   =========================== */
+a {
+	outline: 0;
+	text-decoration:none;
+	}
+
+a img {
+	border: 0px;
+	text-decoration: none;
+}
+
+a:link, a:visited {
+	color:#000;
+	padding: 0 1px;
+	text-decoration: none;
+	list-style-type:none;
+}
+
+a:hover, a:active {
+
+	color:#CCC;
+	text-decoration: none;
+}
+
+
+/* ===========================
+   ===== Main Navigation =====
+   =========================== */
+.mainNavigation nav {
+	font-size: 1em;
+	line-height: 30px;
+	margin: 0 auto;
+	background-color:#f5f4f2
+
+}
+
+.mainNavigation nav ul {
+	list-style:none;
+	margin-top:2px;
+	float:left;
+	padding-right:20px;
+	padding-left:60px;
+	/*	background-color:#CC9
+*/
+}
+
+.mainNavigation nav ul li {
+	margin: 0 auto;
+	height:24px;
+	font-family:Arial, Helvetica, sans-serif;
+
+
+}
+
+.mainNavigation nav a:link, .mainNavigation nav a:visited {
+	color:#333;
+	height: 10px;
+	padding: 1px 13px;
+	text-decoration: none;
+	list-style: none;
+}
+.mainNavigation nav a:hover, .mainNavigation nav a:active,
+.mainNavigation nav .active a:link, .mainNavigation nav .active a:visited {
+	color:#ccc;
+	/*background-color:#f7f6f4;*/
+	text-shadow: none !important;
+	-webkit-transition: 0.5s; /* Safari */
+    transition: 0.5s;
+	transition-timing-function: ease-out;
+	-webkit-transition-timing-function: ease-out;/* Safari */
+}
+
+.mainNavigation nav li.language{
+	margin-top:15px;
+	font-size: 1em;
+}
+/* ===========================
+   ===== Content =====
+   =========================== */
+.top-sidebar {
+	width: 350px;
+	float: left;
+	margin-top: 2%;
+	margin-left: 5%;
+	padding: 1%;
+	padding-left:1%;
+}
+.middle-sidebar {
+	width: 250px;
+	float: left;
+	clear:left;
+	margin-left: 0%;
+	padding: 1%;
+	margin-bottom: 2%;
+	text-align:center;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	letter-spacing: 3px;
+	text-align:left
+}
+.bottom-sidebar {
+	width: 70%;
+	float: left;
+	margin-left: 0%;
+	padding: 0 2% 0 0;
+	margin-bottom: 1%;
+	/*background-color: #faf8f6;
+	border-bottom: 1px solid #CCC;
+	border-top: 1px solid #CCC;*/
+}
+.top-sidebar p{
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	letter-spacing: 3px;
+	color: #000;
+	font-size: 25px;
+	color: #000;
+}
+
+.image4{
+	margin-right:30px
+}
+.content {
+	float: left;
+	padding: 2% 2% 2% 5%
+}
+.contenttext p{
+	float: left;
+	margin-left:4%;
+	/*padding: 2% 0% 2% 0%;*/
+	letter-spacing: 1px;
+	line-height: 20px;
+
+}
+.bottom-sidebar p{
+	float: left;
+	margin-left:5%;
+	padding-top:2%;
+	/*padding-left:3%;*/
+	/*border-left: 1px #f1eeea solid;*/
+	clear:right;
+	line-height: 20px;
+}
+
+.bottom-sidebar h2{
+	float: left;
+	margin-left:5%;
+	padding-top:1%;
+	padding-left:3%;
+	border-left: 1px #f1eeea solid
+
+}
+
+/* ===========================
+   ===== Images =====
+   =========================== */
+img.mainImage {
+    opacity: 1.0;
+    filter: alpha(opacity=100); /* For IE8 and earlier */
+}
+img.mainImage:hover {
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+	-webkit-transition: 0.5s; /* Safari */
+    transition: 0.4s;
+	transition-timing-function: ease-out;
+	-webkit-transition-timing-function: ease-out;/* Safari */
+}
+
+ul.img-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  /* text-align: center; */
+}
+
+ul.img-list li {
+  display: inline-block;
+  margin: 0 1em 1em 0;
+  position: relative;
+}
+
+span.text-content {
+    vertical-align:bottom;
+    display: inline-block;
+    text-align:left;
+    width: 120px;
+	margin-bottom:10px;
+	font-size:85%;
+}
+span.text-content2 {
+    display: block;
+    width: 180px;
+	margin-bottom:30px;
+	font-size:85%;
+	margin-top:5px;
+	padding:0 0 0 40%;
+}
+ul.img-list li:hover span.text-content {
+  opacity: 1;
+}
+.homePhoto{
+	padding-left:100px
+}
+.imageBio{
+	padding:3% 0 0 40%;
+	vertical-align: top;
+    display: inline-block;
+    text-align: center;
+
+}
+/* ===========================
+   ===== CV =====
+   =========================== */
+
+table {
+	margin-left:40px;
+	margin-top:10px;
+    border-collapse: collapse;
+    width: 100%;
+	font-weight:bold
+
+
+}
+
+th, td {
+	padding:3px;
+	padding-left: 1px;
+    /*padding-left: 4px;
+	padding-bottom: 18px;
+    text-align: left;
+	vertical-align:middle;*/
+}
+
+/*.text{
+width:340px;
+height:217px; b
+ackground:#FFF;
+opacity:0;
+} */
+/*.content img:hover .text {
+opacity:0.6;
+text-align:justify;
+color:#000000;
+font-size:20px;
+font-weight:700;
+font-family:"Times New Roman",
+Times, serif; padding:30px; }*/
+
+
+@media only screen and (min-width : 150px) and (max-width : 780px)
+{
+	.body {
+		clear: both;
+		margin: 0 auto;
+		width: 90%;
+	}
+
+	.mainNavigation nav {
+		font-size: 0.9em;
+		line-height: 30px;
+		margin-bottom: 0;
+	}
+
+	.mainNavigation nav ul {
+		list-style: none;
+		margin: 0 auto;
+		padding-left: 0;
+		margin-bottom:10px;
+		margin-top:0px;
+		width: 60%;
+
+	}
+
+	.mainNavigation nav li {
+		margin-left: 0 auto;
+		width: 100%;
+		text-align:center;
+		float: none;
+
+	}
+
+	.mainNavigation nav a:link, .mainNavigation nav a:visited {
+	color:#333;
+	height: 10px;
+	padding: 1px 13px;
+	text-decoration: none;
+	list-style: none;
+
+	}
+
+	.mainNavigation nav a:active,
+	.mainNavigation nav .active a:link, .mainNavigation nav .active a:visited {
+		color:#CCC;
+		text-shadow: none !important;
+	}
+
+
+
+	.mainContent {
+		overflow: hidden;
+		line-height: 25px;
+		border-radius: 5px;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		margin-top: 4%;
+		margin-bottom:90px;
+		width:100%;
+		margin-left:0px;
+
+	}
+
+
+
+
+
+	.content {
+		width: 90%;
+		float: left;
+		border-radius: 5px;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+	}
+
+	.top-sidebar {
+		width: 96%;
+		float: left;
+		margin-top: 4%;
+		margin-left: 0;
+		padding: 0 7%;
+		margin-bottom: 0;
+	}
+
+	.top-sidebar p {
+		width: 90%;
+	}
+
+	.middle-sidebar {
+		width: 96%;
+		float: left;
+		margin-left: 0;
+		padding: 0 7%;
+		margin-bottom: 0;
+
+	}
+
+	.middle-sidebar p {
+		width: 90%;
+	}
+
+	.bottom-sidebar {
+		width: 96%;
+		float: left;
+		margin-top: 4%;
+		margin-left: 0%;
+		padding: 0 7% 0 0;
+		margin-bottom: 30%;
+	}
+
+	.bottom-sidebar p {
+		width: 90%;
+	}
+	table {
+	margin-left:20px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding-left: 1px;
+	padding-bottom: 18px;
+    text-align: left;
+	vertical-align:middle;
+}
+.imageBio{
+	padding:3% 0 5% 20%;
+
+}
+
+}

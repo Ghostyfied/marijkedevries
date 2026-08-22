@@ -1,0 +1,500 @@
+[
+ {
+  "path": "/images/1-canvas.jpg",
+  "bytes": 637772,
+  "width": 772,
+  "height": 1000
+ },
+ {
+  "path": "/images/1-perspex.jpg",
+  "bytes": 668003,
+  "width": 1000,
+  "height": 1333
+ },
+ {
+  "path": "/images/1-project.jpg",
+  "bytes": 780065,
+  "width": 862,
+  "height": 1144
+ },
+ {
+  "path": "/images/1-tekening.jpg",
+  "bytes": 49033,
+  "width": 595,
+  "height": 1200
+ },
+ {
+  "path": "/images/10-project.jpg",
+  "bytes": 847081,
+  "width": 2304,
+  "height": 1536
+ },
+ {
+  "path": "/images/11-project.jpg",
+  "bytes": 747487,
+  "width": 2304,
+  "height": 1536
+ },
+ {
+  "path": "/images/12-project.jpg",
+  "bytes": 824235,
+  "width": 2200,
+  "height": 1536
+ },
+ {
+  "path": "/images/13-project.jpg",
+  "bytes": 380786,
+  "width": 1024,
+  "height": 363
+ },
+ {
+  "path": "/images/14-project.jpg",
+  "bytes": 464608,
+  "width": 1000,
+  "height": 1548
+ },
+ {
+  "path": "/images/15-project.jpg",
+  "bytes": 603026,
+  "width": 1721,
+  "height": 1072
+ },
+ {
+  "path": "/images/16-project.jpg",
+  "bytes": 733852,
+  "width": 1710,
+  "height": 1347
+ },
+ {
+  "path": "/images/2-canvas.jpg",
+  "bytes": 662583,
+  "width": 772,
+  "height": 1000
+ },
+ {
+  "path": "/images/2-perspex.jpg",
+  "bytes": 95500,
+  "width": 822,
+  "height": 1200
+ },
+ {
+  "path": "/images/2-project.jpg",
+  "bytes": 626220,
+  "width": 1209,
+  "height": 845
+ },
+ {
+  "path": "/images/2-tekening.jpg",
+  "bytes": 87720,
+  "width": 1000,
+  "height": 993
+ },
+ {
+  "path": "/images/3-canvas.jpg",
+  "bytes": 671911,
+  "width": 911,
+  "height": 1126
+ },
+ {
+  "path": "/images/3-perspex.jpg",
+  "bytes": 94130,
+  "width": 969,
+  "height": 1200
+ },
+ {
+  "path": "/images/3-project.jpg",
+  "bytes": 642141,
+  "width": 1024,
+  "height": 1285
+ },
+ {
+  "path": "/images/3-tekening.jpg",
+  "bytes": 65053,
+  "width": 876,
+  "height": 1200
+ },
+ {
+  "path": "/images/4-canvas.jpg",
+  "bytes": 84682,
+  "width": 942,
+  "height": 1200
+ },
+ {
+  "path": "/images/4-perspex.jpg",
+  "bytes": 422954,
+  "width": 701,
+  "height": 900
+ },
+ {
+  "path": "/images/4-project.jpg",
+  "bytes": 587179,
+  "width": 1024,
+  "height": 1504
+ },
+ {
+  "path": "/images/4-tekening.jpg",
+  "bytes": 64909,
+  "width": 899,
+  "height": 1200
+ },
+ {
+  "path": "/images/5-perspex.jpg",
+  "bytes": 514598,
+  "width": 441,
+  "height": 1000
+ },
+ {
+  "path": "/images/5-project.jpg",
+  "bytes": 711382,
+  "width": 1000,
+  "height": 1199
+ },
+ {
+  "path": "/images/5-tekening.jpg",
+  "bytes": 77743,
+  "width": 1000,
+  "height": 998
+ },
+ {
+  "path": "/images/6-project.jpg",
+  "bytes": 655946,
+  "width": 1000,
+  "height": 1229
+ },
+ {
+  "path": "/images/6-tekening.jpg",
+  "bytes": 64689,
+  "width": 1000,
+  "height": 736
+ },
+ {
+  "path": "/images/7-project.jpg",
+  "bytes": 457178,
+  "width": 1000,
+  "height": 1331
+ },
+ {
+  "path": "/images/7-tekening.jpg",
+  "bytes": 114218,
+  "width": 886,
+  "height": 1200
+ },
+ {
+  "path": "/images/8-project.jpg",
+  "bytes": 697175,
+  "width": 1024,
+  "height": 1141
+ },
+ {
+  "path": "/images/9-project.jpg",
+  "bytes": 595804,
+  "width": 1440,
+  "height": 1481
+ },
+ {
+  "path": "/images/AAtindertimesflyer4.png",
+  "bytes": 2184335,
+  "width": 1240,
+  "height": 1753
+ },
+ {
+  "path": "/images/FA_Book_2015_Omslag.jpg",
+  "bytes": 325908,
+  "width": 1240,
+  "height": 1240
+ },
+ {
+  "path": "/images/Falling Angel.mp4",
+  "bytes": 3002233,
+  "width": null,
+  "height": null
+ },
+ {
+  "path": "/images/IMG_9848.jpg",
+  "bytes": 1038066,
+  "width": 2327,
+  "height": 2777
+ },
+ {
+  "path": "/images/Room, 24 x 18, oil on canvas.jpg",
+  "bytes": 5586254,
+  "width": 2573,
+  "height": 3469
+ },
+ {
+  "path": "/images/Swimmers, detail of dyptich 200 x 200 cm .jpg",
+  "bytes": 6696851,
+  "width": 2750,
+  "height": 3947
+ },
+ {
+  "path": "/images/Swimmers_, detail of dyptich 200 x 200 cm .jpg",
+  "bytes": 7481472,
+  "width": 2743,
+  "height": 3429
+ },
+ {
+  "path": "/images/Taste. 77 x 62  cm , perspex mixed media.jpg",
+  "bytes": 3995538,
+  "width": 2727,
+  "height": 3392
+ },
+ {
+  "path": "/images/air.jpg",
+  "bytes": 64619,
+  "width": 884,
+  "height": 880
+ },
+ {
+  "path": "/images/cobra-museum.jpg",
+  "bytes": 51764,
+  "width": 667,
+  "height": 1000
+ },
+ {
+  "path": "/images/falling-angel/1-tekening.jpg",
+  "bytes": 49033,
+  "width": 595,
+  "height": 1200
+ },
+ {
+  "path": "/images/falling-angel/2-tekening.jpg",
+  "bytes": 87720,
+  "width": 1000,
+  "height": 993
+ },
+ {
+  "path": "/images/falling-angel/3-tekening.jpg",
+  "bytes": 65053,
+  "width": 876,
+  "height": 1200
+ },
+ {
+  "path": "/images/falling-angel/4-tekening.jpg",
+  "bytes": 64909,
+  "width": 899,
+  "height": 1200
+ },
+ {
+  "path": "/images/falling-angel/5-tekening.jpg",
+  "bytes": 77743,
+  "width": 1000,
+  "height": 998
+ },
+ {
+  "path": "/images/falling-angel/6-tekening.jpg",
+  "bytes": 64689,
+  "width": 1000,
+  "height": 736
+ },
+ {
+  "path": "/images/falling-angel/7-tekening.jpg",
+  "bytes": 114218,
+  "width": 886,
+  "height": 1200
+ },
+ {
+  "path": "/images/falling-angel/falling-angel.jpg",
+  "bytes": 95500,
+  "width": 822,
+  "height": 1200
+ },
+ {
+  "path": "/images/falling-angel/falling-angel.mp4",
+  "bytes": 3002233,
+  "width": null,
+  "height": null
+ },
+ {
+  "path": "/images/foto-atelier-2.jpg",
+  "bytes": 61373,
+  "width": 900,
+  "height": 600
+ },
+ {
+  "path": "/images/foto-atelier-3.jpg",
+  "bytes": 23748,
+  "width": 400,
+  "height": 600
+ },
+ {
+  "path": "/images/love-in-times-of-corona/bas-iphone.jpg",
+  "bytes": 2081985,
+  "width": 2225,
+  "height": 3033
+ },
+ {
+  "path": "/images/love-in-times-of-corona/blowjob.jpg",
+  "bytes": 3002538,
+  "width": 2684,
+  "height": 3123
+ },
+ {
+  "path": "/images/love-in-times-of-corona/harbor.jpg",
+  "bytes": 164499,
+  "width": 635,
+  "height": 560
+ },
+ {
+  "path": "/images/love-in-times-of-corona/holding-falling.jpg",
+  "bytes": 1807810,
+  "width": 2474,
+  "height": 3366
+ },
+ {
+  "path": "/images/love-in-times-of-corona/love-in-the-times-of-corona.jpg",
+  "bytes": 4021335,
+  "width": 3057,
+  "height": 3057
+ },
+ {
+  "path": "/images/love-in-times-of-corona/muze.jpg",
+  "bytes": 3218214,
+  "width": 2585,
+  "height": 2360
+ },
+ {
+  "path": "/images/love-in-times-of-corona/nathan.jpg",
+  "bytes": 1272547,
+  "width": 1540,
+  "height": 3615
+ },
+ {
+  "path": "/images/love-in-times-of-corona/omer.jpg",
+  "bytes": 2252492,
+  "width": 2853,
+  "height": 3869
+ },
+ {
+  "path": "/images/model_session_bas.jpg",
+  "bytes": 2079817,
+  "width": 3024,
+  "height": 4032
+ },
+ {
+  "path": "/images/tinder-times/1-project.jpg",
+  "bytes": 780065,
+  "width": 862,
+  "height": 1144
+ },
+ {
+  "path": "/images/tinder-times/10-project.jpg",
+  "bytes": 847081,
+  "width": 2304,
+  "height": 1536
+ },
+ {
+  "path": "/images/tinder-times/11-project.jpg",
+  "bytes": 747487,
+  "width": 2304,
+  "height": 1536
+ },
+ {
+  "path": "/images/tinder-times/12-project.jpg",
+  "bytes": 824235,
+  "width": 2200,
+  "height": 1536
+ },
+ {
+  "path": "/images/tinder-times/13-project.jpg",
+  "bytes": 380786,
+  "width": 1024,
+  "height": 363
+ },
+ {
+  "path": "/images/tinder-times/14-project.jpg",
+  "bytes": 464608,
+  "width": 1000,
+  "height": 1548
+ },
+ {
+  "path": "/images/tinder-times/2-project.jpg",
+  "bytes": 626220,
+  "width": 1209,
+  "height": 845
+ },
+ {
+  "path": "/images/tinder-times/3-project.jpg",
+  "bytes": 642141,
+  "width": 1024,
+  "height": 1285
+ },
+ {
+  "path": "/images/tinder-times/4-project.jpg",
+  "bytes": 587179,
+  "width": 1024,
+  "height": 1504
+ },
+ {
+  "path": "/images/tinder-times/5-project.jpg",
+  "bytes": 711382,
+  "width": 1000,
+  "height": 1199
+ },
+ {
+  "path": "/images/tinder-times/6-project.jpg",
+  "bytes": 655946,
+  "width": 1000,
+  "height": 1229
+ },
+ {
+  "path": "/images/tinder-times/7-project.jpg",
+  "bytes": 457178,
+  "width": 1000,
+  "height": 1331
+ },
+ {
+  "path": "/images/tinder-times/8-project.jpg",
+  "bytes": 697175,
+  "width": 1024,
+  "height": 1141
+ },
+ {
+  "path": "/images/tinder-times/9-project.jpg",
+  "bytes": 595804,
+  "width": 1440,
+  "height": 1481
+ },
+ {
+  "path": "/images/tinder-times/blue-eyes.jpg",
+  "bytes": 2244150,
+  "width": 3201,
+  "height": 2580
+ },
+ {
+  "path": "/images/tinder-times/complementary.jpg",
+  "bytes": 756238,
+  "width": 2153,
+  "height": 3253
+ },
+ {
+  "path": "/images/tinder-times/selfcare.jpg",
+  "bytes": 1778877,
+  "width": 2316,
+  "height": 3322
+ },
+ {
+  "path": "/images/tinder-times/shy.jpg",
+  "bytes": 2195307,
+  "width": 2727,
+  "height": 3533
+ },
+ {
+  "path": "/images/tinder-times/stranger-in-a-strange-land-detail.jpg",
+  "bytes": 1031222,
+  "width": 3024,
+  "height": 4032
+ },
+ {
+  "path": "/images/tinder-times/stranger-in-a-strange-land.jpg",
+  "bytes": 658440,
+  "width": 2036,
+  "height": 3619
+ },
+ {
+  "path": "/nl/Programma Tinder Times.pdf",
+  "bytes": 26379,
+  "width": null,
+  "height": null
+ }
+]
