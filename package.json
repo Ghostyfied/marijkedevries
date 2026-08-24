@@ -4,19 +4,25 @@
   "type": "module",
   "description": "Portfolio site of visual artist Marijke de Vries",
   "scripts": {
-    "dev": "vite",
-    "build": "vite-ssg build && node scripts/postbuild.mjs",
+    "dev": "npm run images && vite",
+    "images": "node scripts/build-images.mjs",
+    "build": "npm run images && vite-ssg build && node scripts/postbuild.mjs",
     "preview": "vite preview",
-    "typecheck": "vue-tsc --noEmit"
+    "typecheck": "vue-tsc --noEmit",
+    "migrate:works": "node scripts/migrate-works.mjs"
   },
   "dependencies": {
     "@unhead/vue": "^2.1.17",
+    "photoswipe": "^5.4.4",
     "vue": "^3.5.41",
     "vue-router": "^5.2.0"
   },
   "devDependencies": {
+    "@types/markdown-it": "^14.2.0",
     "@types/node": "^26.2.0",
     "@vitejs/plugin-vue": "^6.0.8",
+    "markdown-it": "^15.0.0",
+    "sharp": "^0.35.3",
     "typescript": "^5.9.3",
     "vite": "^8.2.2",
     "vite-ssg": "^28.3.0",

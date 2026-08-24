@@ -2,9 +2,28 @@
  * Design tokens measured from the original site's main4.css and verified
  * against rendered screenshots at 1440 / 820 / 390 px. See PLAN.md §2.
  *
- * Two declarations in the original are bugs and are deliberately not carried
- * over: `body { line-height: 10px }` (overridden to 20px everywhere it
- * mattered) and `table { font-weight: bold }` (why the whole CV rendered bold).
+ * Three declarations in the original are dead or masked and are deliberately
+ * not carried over:
+ *
+ *   body { line-height: 10px }        overridden to 20px on every text block. It
+ *                                     did still reach the 25px site title, which
+ *                                     inherited it — that is where the original's
+ *                                     top spacing came from. Reproduced here as
+ *                                     explicit margins on .site-title rather than
+ *                                     by inheriting a 10px line-height onto a
+ *                                     25px font.
+ *   table { font-weight: bold }       the only reason the whole CV rendered bold
+ *   .mainNavigation nav { background-color: #f5f4f2 }
+ *                                     never visible — the <ul> inside is floated,
+ *                                     so the <nav> collapses to zero height
+ *
+ *   .contenttext p { margin-left: 4% } is also dead: `.bottom-sidebar p` has
+ *   equal specificity and comes later in the file, so 5% always won. The 5% is
+ *   what --text-inset reproduces.
+ *
+ * Horizontal insets use vw rather than % because the original's percentages
+ * resolved against the body, and reproducing that inside a grid item would
+ * resolve them against the grid area instead. The two agree to within a pixel.
  */
 :root {
   /* Colour */
@@ -14,7 +33,6 @@
   --c-link-hover: #cccccc;
   --c-nav: #333333;
   --c-nav-active: #cccccc;
-  --c-nav-bg: #f5f4f2;
   --c-rule: #f1eeea;
 
   /* Type */
@@ -22,17 +40,21 @@
   --fs-base: 14px;
   --fs-title: 25px;
   --fs-nav: 14px;
-  --fs-h2: 17.8px; /* 1.271em of 14px */
+  --fs-h2: 1.271em;
   --lh-body: 20px;
   --lh-nav: 30px;
   --ls-body: 1px;
   --ls-display: 3px;
 
-  /* Layout */
-  --w-sidebar: 250px;
-  --w-title: 350px;
-  --w-content: 70%;
-  --gutter: 5%;
+  /* Layout — see the note above on vw */
+  --rail-w: calc(250px + 2vw); /* .middle-sidebar: 250px + 1% padding each side */
+  --content-w: 70vw; /* .bottom-sidebar: width 70% */
+  --inset-title: 6vw; /* .top-sidebar: 5% margin + 1% padding */
+  --inset-nav: calc(1vw + 73px); /* 1% padding + 60px ul padding + 13px link padding */
+  --content-inset: 3.5vw; /* 5% of the 70% content column */
+  --text-inset: 3.5vw; /* .bottom-sidebar p margin-left: 5% */
+  --h2-rule-inset: 2.1vw; /* .bottom-sidebar h2 padding-left: 3% */
+  --bp-narrow: 780px;
 
   /* Motion */
   --t-nav: 0.5s;

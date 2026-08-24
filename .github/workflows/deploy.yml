@@ -30,6 +30,18 @@ jobs:
 
       - run: npm ci
 
+      # Re-encoding 80 masters into 612 derivatives takes ~95s. The script is
+      # incremental, so a cache hit makes it a no-op; the key covers the masters
+      # and the script itself, so changing either regenerates.
+      - name: Cache image derivatives
+        uses: actions/cache@v4
+        with:
+          path: |
+            public/img
+            public/media
+            src/generated
+          key: images-${{ hashFiles('assets/originals/**', 'scripts/build-images.mjs') }}
+
       - run: npm run typecheck
 
       - run: npm run build
@@ -40,6 +52,8 @@ jobs:
             test -s "dist/$page.html" || { echo "missing dist/$page.html"; exit 1; }
           done
           test -s dist/CNAME || { echo "missing dist/CNAME"; exit 1; }
+          count=$(grep -o '<picture' dist/werken.html | wc -l)
+          test "$count" -eq 41 || { echo "expected 41 works, found $count"; exit 1; }
 
       - uses: actions/upload-pages-artifact@v3
         with:

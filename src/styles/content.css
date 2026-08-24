@@ -1,0 +1,107 @@
+/*
+ * Typography for the content column. Global rather than scoped because the
+ * long-form essays arrive as HTML strings from the Markdown files and scoped
+ * styles would not reach them.
+ *
+ * Reproduces the original's `.bottom-sidebar` rules — see PLAN.md §2. The
+ * original achieved this with floats; the same result falls out of normal flow.
+ */
+
+/*
+ * No padding on the wrapper: in the original every block carried its own
+ * `padding-top: 2%`, including the first, so putting it on the container too
+ * would double the offset at the top of each page.
+ */
+.prose p,
+.prose ul,
+.prose table,
+.prose .block {
+  margin-left: var(--text-inset);
+  line-height: var(--lh-body);
+  letter-spacing: var(--ls-body);
+}
+
+.prose p {
+  margin-top: 0;
+  margin-bottom: 1em;
+  padding-top: 2%;
+}
+
+.prose h2 {
+  margin: 0 0 0.8em;
+  margin-left: var(--text-inset);
+  padding-top: 1%;
+  padding-left: var(--h2-rule-inset);
+  border-left: 1px solid var(--c-rule);
+  font-size: var(--fs-h2);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+/* Section labels above each gallery series: bold, same indent as body text. */
+.prose h3 {
+  margin: 0 0 0.4em;
+  margin-left: var(--text-inset);
+  padding-top: 2%;
+  font-size: 1em;
+  font-weight: bold;
+  line-height: var(--lh-body);
+}
+
+.prose a {
+  color: var(--c-link);
+}
+
+.prose b,
+.prose strong {
+  font-weight: bold;
+}
+
+/* The CV tables. The original set font-weight:bold on every table; that was a
+   stray rule, so only the year column is emphasised here. */
+.cv-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 1.5em;
+}
+
+.cv-table th,
+.cv-table td {
+  padding: 3px 3px 3px 1px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.cv-table td:first-child {
+  width: 16%;
+  min-width: 7em;
+  font-weight: bold;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+@media (max-width: 780px) {
+  .prose p,
+  .prose ul,
+  .prose table,
+  .prose .block,
+  .prose h2,
+  .prose h3 {
+    margin-left: 0;
+  }
+
+  .prose h2 {
+    padding-left: 0.75em;
+  }
+
+  .cv-table td:first-child {
+    width: auto;
+    min-width: 5.5em;
+  }
+
+  .cv-table th,
+  .cv-table td {
+    padding-bottom: 12px;
+  }
+}

@@ -1,8 +1,17 @@
+<script setup lang="ts">
+import { links } from '../content/links'
+</script>
+
 <template>
-  <section class="page">
+  <div class="prose">
     <h1 class="sr-only">Links</h1>
-    <p class="stub">Links — inhoud volgt in fase 4.</p>
-  </section>
+    <ul class="link-list">
+      <li v-for="link in links" :key="link.href">
+        <a :href="link.href" target="_blank" rel="noopener">{{ link.label }}</a>
+        <span v-if="link.description"> — {{ link.description }}</span>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <style scoped>
@@ -15,7 +24,13 @@
   white-space: nowrap;
 }
 
-.stub {
-  color: #999;
+.link-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 0;
+}
+
+.link-list li {
+  margin-bottom: 1.4em;
 }
 </style>
