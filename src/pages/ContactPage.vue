@@ -73,8 +73,14 @@ import ResponsiveImage from '../components/ResponsiveImage.vue'
   font-weight: bold;
 }
 
+/*
+ * The original styled links exactly like body text — same colour, no underline —
+ * so an email address in a bold line was indistinguishable from the label next
+ * to it. Underlined here; it is the only cue these links have.
+ */
 .details a {
   font-weight: bold;
+  text-decoration: underline;
 }
 
 /* The original set this as plain bold body text, not an <h2> treatment. */
@@ -101,7 +107,10 @@ import ResponsiveImage from '../components/ResponsiveImage.vue'
   margin-bottom: 0.5em;
 }
 
+/* 16px-tall link rows are below the 24px minimum touch target. */
 .block-links a {
+  display: inline-block;
+  padding: 4px 0;
   text-decoration: underline;
   font-weight: bold;
 }

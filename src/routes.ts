@@ -66,3 +66,35 @@ export const routes: RouteRecordRaw[] = [
     },
   },
 ]
+
+/*
+ * Pre-rendered to dist/404.html, which GitHub Pages serves for any unknown path.
+ * The catch-all keeps client-side navigation consistent with that.
+ */
+routes.push(
+  {
+    path: '/404',
+    name: 'not-found',
+    component: () => import('./pages/NotFoundPage.vue'),
+    meta: {
+      hidden: true,
+      nav: '',
+      title: 'Pagina niet gevonden',
+      description: 'Deze pagina bestaat niet.',
+    },
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'catch-all',
+    component: () => import('./pages/NotFoundPage.vue'),
+    meta: {
+      hidden: true,
+      nav: '',
+      title: 'Pagina niet gevonden',
+      description: 'Deze pagina bestaat niet.',
+    },
+  },
+)
+
+/** The routes that appear in the main navigation, in order. */
+export const navRoutes = routes.filter((r) => !r.meta?.hidden)

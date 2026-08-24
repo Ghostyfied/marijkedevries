@@ -3,9 +3,9 @@
 Recreation of the portfolio site of visual artist **Marijke de Vries**
 (marijkedevries.nl) as a Vue 3 application, hosted on GitHub Pages.
 
-**Status:** phases 1–5 of 7 complete. All six pages are built and carry their
-real content. Remaining: phase 6 (legacy-URL redirects, sitemap, JSON-LD) and
-phase 7 (cross-browser pass, DNS cutover). See [`PLAN.md`](PLAN.md).
+**Status:** built and verified. The only step left is the DNS cutover, which is
+the owner's. See [`PLAN.md`](PLAN.md) — §10 for measured results, §12 for the
+handful of content decisions that need Marijke.
 
 ## Running it
 
@@ -76,6 +76,19 @@ touching a component:
 - `links.ts`, `contact.ts` — hand-transcribed, because the original markup for
   those two pages has unclosed `<a>` tags that swallow whole paragraphs.
 
+## What the build emits
+
+Beyond the six pages, `scripts/postbuild.mjs` writes:
+
+- a stub at each of the **15 URLs the old site served**, carrying `rel=canonical`
+  and a meta refresh — GitHub Pages cannot issue a 301, and these paths have
+  inbound links from a VICE article, a Facebook event and Eventbrite;
+- `sitemap.xml`, and the exhibition programme back at its original
+  `/nl/Programma Tinder Times.pdf`.
+
+`/404` is a real pre-rendered route rather than a copy of the home page, so an
+unknown path gets a page that says so instead of home-page content under a 404.
+
 ## Deployment
 
 `.github/workflows/deploy.yml` runs typecheck and build on every push to `main`,
@@ -84,6 +97,17 @@ publishes with `actions/deploy-pages`. No secrets.
 
 Before the first deploy, set **Settings → Pages → Source** to *GitHub Actions*.
 DNS and the custom-domain cutover are covered in `PLAN.md` §9.
+
+## Checking it
+
+```bash
+node scripts/visual-diff.mjs --new http://127.0.0.1:4173
+```
+
+Screenshots the rebuild beside the original at three viewports and writes
+stacked comparisons to `.visual-diff/`. Run it from a machine with outbound
+network access; it is deliberately not in CI, because "does this look right" is
+a judgement, not an assertion.
 
 ## Reference material
 

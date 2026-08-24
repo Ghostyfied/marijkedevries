@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { onBeforeUnmount, shallowRef } from 'vue'
-import PhotoSwipeLightbox from 'photoswipe/lightbox'
+import type PhotoSwipeLightbox from 'photoswipe/lightbox'
+// Stylesheet stays static: deferring it too let the first open paint unstyled
+// before the CSS landed. It is ~10 KB and rides in the werken route's chunk.
 import 'photoswipe/style.css'
 
 export interface Slide {
@@ -23,7 +25,11 @@ const lightbox = shallowRef<PhotoSwipeLightbox | null>(null)
  * on top of PhotoSwipe, which brings the pinch-zoom, touch and focus handling
  * the original never had.
  */
-function build() {
+async function build() {
+  // Imported on first open, not on page load: the gallery page should not pay
+  // for the lightbox engine until someone actually clicks a thumbnail.
+  const { default: PhotoSwipeLightbox } = await import('photoswipe/lightbox')
+
   const pswp = new PhotoSwipeLightbox({
     dataSource: props.slides.map((s) => ({
       src: s.src,
@@ -102,8 +108,8 @@ function build() {
   return pswp
 }
 
-function open(index: number) {
-  const pswp = lightbox.value ?? build()
+async function open(index: number) {
+  const pswp = lightbox.value ?? (await build())
   pswp.loadAndOpen(index)
 }
 

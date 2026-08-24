@@ -8,6 +8,9 @@ Analysis performed 2026-08-22 against the live site.
 **Agreed scope:** Dutch only (matching what visitors see today) · same visual
 design, with the site's current defects repaired.
 
+**Status:** phases 1–7 built. Everything below is done except the DNS cutover,
+which is the owner's step. Measured results are in §10.
+
 ---
 
 ## 1. What the current site is
@@ -397,5 +400,19 @@ None of these block the build; they need Marijke's answer before launch.
 3. **`over` and `projecten`.** Both were quietly removed from the nav in 2020 but
    the pages are still live. Restore, or let them go?
 4. **The four caption typos** listed in §5.
-5. **Newer work.** Nothing on the site postdates 2020. If there are works from
+5. **The greyed-out current page in the nav.** The original marks it in #ccc on
+   white — a contrast ratio of 1.6:1, and the one accessibility failure left on
+   every page. It is the designer's visual language, so it has been kept, and
+   `aria-current="page"` means screen readers announce the current page
+   regardless. Darkening it to #949494 would clear WCAG AA and is a one-line
+   change in `tokens.css` (`--c-nav-active`), but it changes how the site looks.
+6. **The archive note on the contact page.** The rebuild adds one Dutch line
+   above the 2020 news block saying the exhibition has passed. That copy was
+   written for the rebuild, not by Marijke. Removing it is `past: false` in
+   `src/content/contact.ts`.
+7. **The programme PDF is now unlinked.** It is still served at
+   `/nl/Programma Tinder Times.pdf`, but the only page that ever linked to it
+   was the orphaned `nl/index.html`. Worth a link from the contact page, or
+   leave it reachable only by direct URL.
+8. **Newer work.** Nothing on the site postdates 2020. If there are works from
    the last five years, the new content model makes adding them straightforward.

@@ -31,6 +31,24 @@ useHead({
     { name: 'twitter:card', content: 'summary_large_image' },
   ],
   link: [{ rel: 'canonical', href: canonical }],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: SITE_NAME,
+        url: SITE_URL,
+        jobTitle: 'Beeldend kunstenaar',
+        nationality: 'NL',
+        address: { '@type': 'PostalAddress', addressLocality: 'Amsterdam', addressCountry: 'NL' },
+        email: 'info@marijkedevries.nl',
+        image: `${SITE_URL}/img/model-session-bas/1200.jpg`,
+        sameAs: ['https://www.instagram.com/devries.marijke/'],
+        alumniOf: { '@type': 'CollegeOrUniversity', name: 'Rijksakademie van beeldende kunsten' },
+      }),
+    },
+  ],
 })
 </script>
 

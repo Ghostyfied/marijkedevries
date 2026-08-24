@@ -8,5 +8,7 @@ declare module 'vue-router' {
     title: string
     /** Meta description for this page. */
     description: string
+    /** Kept out of the main navigation (the 404 route). */
+    hidden?: boolean
   }
 }

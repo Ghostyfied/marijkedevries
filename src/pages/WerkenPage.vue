@@ -14,7 +14,7 @@ interface Entry {
 const images = manifest.images as unknown as Record<string, Entry>
 const media = manifest.media as Record<string, string>
 
-/** "Titel, mixed media on canvas, 120 × 120 cm, 2020" */
+/** "Titel, mixed media on canvas, 120 x 120 cm, 2020" — as the original captioned it. */
 function caption(w: Work): string {
   return [w.title, w.medium, w.dimensions && `${w.dimensions} cm`, w.year, w.note]
     .filter(Boolean)
@@ -22,25 +22,77 @@ function caption(w: Work): string {
 }
 
 /*
- * One flat slide list across every series, so the lightbox's next/previous walk
- * the whole page the way the original's did.
+ * Alt text is not the caption. Seven of the Falling angel drawings are captioned
+ * only "untitled", which as alt text tells a screen-reader user nothing and
+ * repeats seven times; those get described by their place in the series instead.
  */
-const flat = computed(() => series.flatMap((s) => s.groups.flatMap((g) => g.works)))
+function altFor(w: Work, seriesTitle: string, groupLabel: string | undefined, n: number): string {
+  const parts = [w.title, w.medium, w.dimensions && `${w.dimensions} cm`, w.year].filter(Boolean)
+  if (parts.length > 1) return parts.join(', ')
+  const where = groupLabel ? `${groupLabel} (${n})` : `werk ${n}`
+  return `${w.title} — ${where} uit de serie ${seriesTitle}`
+}
+
+/*
+ * One flat list across every series, carrying the context each work needs for
+ * its alt text, so the grid and the lightbox describe images identically.
+ */
+const flat = computed(() =>
+  series.flatMap((s) =>
+    s.groups.flatMap((g) =>
+      g.works.map((work, i) => ({ work, seriesTitle: s.title, groupLabel: g.label, n: i + 1 })),
+    ),
+  ),
+)
+
+/**
+ * Alt text for one work, keyed by its image.
+ *
+ * Several works share a caption in the source on purpose — two details of one
+ * diptych, five photographs of a single print session. That is fine as a
+ * caption, but as alt text it means hearing the same sentence five times, so
+ * duplicates get numbered.
+ */
+const altByImage = computed(() => {
+  const base = new Map<string, string>()
+  const counts = new Map<string, number>()
+
+  for (const { work, seriesTitle, groupLabel, n } of flat.value) {
+    if (work.kind !== 'image') continue
+    const alt = altFor(work, seriesTitle, groupLabel, n)
+    base.set(work.image, alt)
+    counts.set(alt, (counts.get(alt) ?? 0) + 1)
+  }
+
+  const seen = new Map<string, number>()
+  const map = new Map<string, string>()
+  for (const [image, alt] of base) {
+    const total = counts.get(alt) ?? 1
+    if (total === 1) {
+      map.set(image, alt)
+      continue
+    }
+    const i = (seen.get(alt) ?? 0) + 1
+    seen.set(alt, i)
+    map.set(image, `${alt} (${i} van ${total})`)
+  }
+  return map
+})
 
 const slides = computed<Slide[]>(() =>
   flat.value
-    .filter((w): w is Work => w.kind === 'image')
-    .map((w) => {
-      const e = images[w.image]
+    .filter((f): f is typeof f & { work: Work } => f.work.kind === 'image')
+    .map(({ work }) => {
+      const e = images[work.image]
       const webp = e.sources.webp.entries
       return {
         src: webp[webp.length - 1].url,
         srcset: webp.map((v) => `${v.url} ${v.w}w`).join(', '),
         width: e.width,
         height: e.height,
-        thumb: e.sources.webp.entries[0].url,
-        caption: caption(w),
-        alt: caption(w),
+        thumb: webp[0].url,
+        caption: caption(work),
+        alt: altByImage.value.get(work.image) ?? caption(work),
       }
     }),
 )
@@ -49,7 +101,7 @@ const slides = computed<Slide[]>(() =>
 const slideIndex = computed(() => {
   const map = new Map<string, number>()
   let i = 0
-  for (const w of flat.value) if (w.kind === 'image') map.set(w.image, i++)
+  for (const { work } of flat.value) if (work.kind === 'image') map.set(work.image, i++)
   return map
 })
 
@@ -64,7 +116,7 @@ function openWork(work: Work) {
   <div class="prose">
     <h1 class="sr-only">Werken</h1>
 
-    <section v-for="s in series" :key="s.id" :id="s.id">
+    <section v-for="(s, si) in series" :key="s.id" :id="s.id">
       <h2 class="series-title">{{ s.title }}</h2>
 
       <template v-for="(group, gi) in s.groups" :key="gi">
@@ -89,9 +141,10 @@ function openWork(work: Work) {
             <button v-else type="button" class="thumb" @click="openWork(work)">
               <ResponsiveImage
                 :src="work.image"
-                :alt="caption(work)"
+                :alt="altByImage.get(work.image) ?? caption(work)"
                 :height="work.displayHeight"
                 sizes="(max-width: 780px) 90vw, 400px"
+                :eager="si === 0 && gi === 0 && wi === 0"
               />
               <span class="sr-only">Bekijk groter: {{ caption(work) }}</span>
             </button>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { routes } from '../routes'
+import { navRoutes } from '../routes'
 
-const items = routes.map((r) => ({ to: r.path, label: r.meta!.nav as string }))
+const items = navRoutes.map((r) => ({ to: r.path, label: r.meta!.nav as string }))
 </script>
 
 <template>

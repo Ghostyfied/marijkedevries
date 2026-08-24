@@ -14,7 +14,7 @@ const leadHtml = intro[0].replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
     <p v-for="para in intro.slice(1)" :key="para.slice(0, 24)">{{ para }}</p>
 
     <section v-for="section in cv" :key="section.heading">
-      <h3>{{ section.heading }}</h3>
+      <h2 class="cv-heading">{{ section.heading }}</h2>
       <table class="cv-table">
         <caption class="sr-only">
           {{
@@ -42,12 +42,26 @@ const leadHtml = intro[0].replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
   white-space: nowrap;
 }
 
+/*
+ * The cv section headings. <h2> so the document outline descends properly from
+ * the page's <h1>; styled as the plain bold body text the original used.
+ */
+.cv-heading {
+  margin: 0 0 0.4em var(--text-inset);
+  padding: 2% 0 0;
+  border-left: 0;
+  font-size: 1em;
+  font-weight: bold;
+  line-height: var(--lh-body);
+}
+
 table {
   margin-left: var(--text-inset);
 }
 
 @media (max-width: 780px) {
-  table {
+  table,
+  .cv-heading {
     margin-left: 0;
   }
 }
