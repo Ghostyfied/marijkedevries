@@ -3,6 +3,7 @@ import { computed, ref } from 'vue'
 import { series, type Work } from '../content/works'
 import manifest from '../generated/images.json'
 import ResponsiveImage from '../components/ResponsiveImage.vue'
+import { asset } from '../asset'
 import ArtLightbox, { type Slide } from '../components/ArtLightbox.vue'
 
 interface Entry {
@@ -86,11 +87,11 @@ const slides = computed<Slide[]>(() =>
       const e = images[work.image]
       const webp = e.sources.webp.entries
       return {
-        src: webp[webp.length - 1].url,
-        srcset: webp.map((v) => `${v.url} ${v.w}w`).join(', '),
+        src: asset(webp[webp.length - 1].url),
+        srcset: webp.map((v) => `${asset(v.url)} ${v.w}w`).join(', '),
         width: e.width,
         height: e.height,
-        thumb: webp[0].url,
+        thumb: asset(webp[0].url),
         caption: caption(work),
         alt: altByImage.value.get(work.image) ?? caption(work),
       }
@@ -130,7 +131,7 @@ function openWork(work: Work) {
           >
             <video
               v-if="work.kind === 'video'"
-              :src="media[work.src]"
+              :src="asset(media[work.src])"
               controls
               preload="none"
               playsinline

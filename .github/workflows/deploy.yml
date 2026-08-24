@@ -4,6 +4,14 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      base_path:
+        description: >-
+          Mount point for the build. Leave as / for the live apex domain. Use
+          /marijkedevries/ to deploy something viewable at the
+          ghostyfied.github.io preview URL before DNS is repointed.
+        required: false
+        default: '/'
 
 # GITHUB_TOKEN needs to read the repo, publish the Pages artifact and mint the
 # OIDC token that deploy-pages exchanges for a deployment.
@@ -50,6 +58,8 @@ jobs:
       - run: npm run typecheck
 
       - run: npm run build
+        env:
+          BASE_PATH: ${{ inputs.base_path || '/' }}
 
       - name: Check the build produced every page
         run: |

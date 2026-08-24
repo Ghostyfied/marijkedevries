@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import manifest from '../generated/images.json'
+import { asset } from '../asset'
 
 const props = withDefaults(
   defineProps<{
@@ -41,13 +42,15 @@ const sourceList = computed(() =>
     .filter(Boolean)
     .map((s) => ({
       type: s.type,
-      srcset: s.entries.map((e) => `${e.url} ${e.w}w`).join(', '),
+      srcset: s.entries.map((e) => `${asset(e.url)} ${e.w}w`).join(', '),
     })),
 )
 
 const jpegSrcset = computed(() =>
-  entry.value.sources.jpg.entries.map((e) => `${e.url} ${e.w}w`).join(', '),
+  entry.value.sources.jpg.entries.map((e) => `${asset(e.url)} ${e.w}w`).join(', '),
 )
+
+const fallback = computed(() => asset(entry.value.fallback))
 
 /*
  * Intrinsic width and height go on the <img> so the browser reserves the right
@@ -64,7 +67,7 @@ const box = computed(() => {
   <picture>
     <source v-for="s in sourceList" :key="s.type" :type="s.type" :srcset="s.srcset" :sizes="sizes" />
     <img
-      :src="entry.fallback"
+      :src="fallback"
       :srcset="jpegSrcset"
       :sizes="sizes"
       :alt="alt"

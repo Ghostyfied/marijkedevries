@@ -21,6 +21,8 @@ import { fileURLToPath } from 'node:url'
 const ROOT = fileURLToPath(new URL('..', import.meta.url))
 const DIST = join(ROOT, 'dist')
 const SITE = 'https://marijkedevries.nl'
+// Matches vite.config.ts — a preview deploy is mounted under a project path.
+const BASE = (process.env.BASE_PATH || '/').replace(/\/*$/, '/')
 
 // ---------------------------------------------------------------- 1. clean ---
 
@@ -42,6 +44,7 @@ if (legacyUrls.length === 0) throw new Error('No legacy URLs parsed from src/leg
 const escape = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;')
 
 function redirectHtml({ to, reason }) {
+  const href = `${BASE}${to.replace(/^\//, '')}`
   const target = `${SITE}${to}`
   const note =
     reason === 'retired'
@@ -54,12 +57,12 @@ function redirectHtml({ to, reason }) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Verhuisd — Marijke de Vries</title>
 <link rel="canonical" href="${escape(target)}">
-<meta http-equiv="refresh" content="0; url=${escape(to)}">
+<meta http-equiv="refresh" content="0; url=${escape(href)}">
 <meta name="robots" content="noindex, follow">
 <style>body{font:14px/20px Arial,Helvetica,sans-serif;color:#000305;margin:4rem auto;max-width:34em;padding:0 1rem;letter-spacing:1px}a{color:#000}</style>
 </head>
 <body>
-<p>${note} <a href="${escape(to)}">${escape(target)}</a></p>
+<p>${note} <a href="${escape(href)}">${escape(target)}</a></p>
 </body>
 </html>
 `

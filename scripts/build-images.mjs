@@ -83,7 +83,9 @@ async function processImage(file) {
       if (await stale(out, srcMtime)) {
         await sharp(file).resize({ width: w, withoutEnlargement: true }).toFormat(ext === 'jpg' ? 'jpeg' : ext, opts).toFile(out)
       }
-      entries.push({ w, url: `/img/${slug}/${w}.${ext}` })
+      // Site-relative, no leading slash: components prefix Vite's BASE_URL so
+      // the same manifest works at the apex domain and under a project path.
+      entries.push({ w, url: `img/${slug}/${w}.${ext}` })
     }
     sources[ext] = { type, entries }
   }
@@ -100,7 +102,7 @@ async function processImage(file) {
       aspect: +(width / height).toFixed(4),
       sources,
       lqip: `data:image/webp;base64,${lqipBuf.toString('base64')}`,
-      fallback: `/img/${slug}/${widths[widths.length - 1]}.jpg`,
+      fallback: `img/${slug}/${widths[widths.length - 1]}.jpg`,
     },
   ]
 }
@@ -143,7 +145,7 @@ for (const file of others) {
   const name = basename(file).toLowerCase().replace(/[^a-z0-9.]+/g, '-')
   const dest = join(ROOT, 'public/media', name)
   if (await stale(dest, (await stat(file)).mtimeMs)) await copyFile(file, dest)
-  passthrough[rel] = `/media/${name}`
+  passthrough[rel] = `media/${name}`
 }
 
 await mkdir(dirname(MANIFEST), { recursive: true })

@@ -20,7 +20,16 @@ function markdown(): Plugin {
   }
 }
 
+/*
+ * Production is the apex domain, so assets live at /. A deploy to the
+ * ghostyfied.github.io/marijkedevries preview URL is mounted a level down and
+ * needs BASE_PATH=/marijkedevries/, or every /assets/... request 404s against
+ * the domain root.
+ */
+const base = process.env.BASE_PATH || '/'
+
 export default defineConfig({
+  base,
   plugins: [vue(), markdown()],
   resolve: {
     alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) },
