@@ -100,14 +100,25 @@ DNS and the custom-domain cutover are covered in `PLAN.md` §9.
 
 ## Checking it
 
+Neither of these is a project dependency — they are occasional manual checks, and
+adding them to `devDependencies` would put a hundred-odd packages into every CI
+install for no gain.
+
 ```bash
-node scripts/visual-diff.mjs --new http://127.0.0.1:4173
+npm run build && npm run preview
+
+# side-by-side screenshots of old against new at three viewports
+npm i -g playwright && node scripts/visual-diff.mjs --new http://localhost:4173
+
+# scores
+npx lighthouse http://localhost:4173/werken --view
 ```
 
-Screenshots the rebuild beside the original at three viewports and writes
-stacked comparisons to `.visual-diff/`. Run it from a machine with outbound
-network access; it is deliberately not in CI, because "does this look right" is
-a judgement, not an assertion.
+`visual-diff.mjs` writes stacked comparisons to `.visual-diff/`. Run it from a
+machine with outbound network access. It is deliberately not in CI, because
+"does this look right" is a judgement, not an assertion.
+
+Measured results, and the caveats on them, are in `PLAN.md` §10.
 
 ## Reference material
 
