@@ -1,0 +1,41 @@
+/*
+ * Design tokens measured from the original site's main4.css and verified
+ * against rendered screenshots at 1440 / 820 / 390 px. See PLAN.md §2.
+ *
+ * Two declarations in the original are bugs and are deliberately not carried
+ * over: `body { line-height: 10px }` (overridden to 20px everywhere it
+ * mattered) and `table { font-weight: bold }` (why the whole CV rendered bold).
+ */
+:root {
+  /* Colour */
+  --c-bg: #ffffff;
+  --c-text: #000305;
+  --c-link: #000000;
+  --c-link-hover: #cccccc;
+  --c-nav: #333333;
+  --c-nav-active: #cccccc;
+  --c-nav-bg: #f5f4f2;
+  --c-rule: #f1eeea;
+
+  /* Type */
+  --font-sans: Arial, Helvetica, sans-serif;
+  --fs-base: 14px;
+  --fs-title: 25px;
+  --fs-nav: 14px;
+  --fs-h2: 17.8px; /* 1.271em of 14px */
+  --lh-body: 20px;
+  --lh-nav: 30px;
+  --ls-body: 1px;
+  --ls-display: 3px;
+
+  /* Layout */
+  --w-sidebar: 250px;
+  --w-title: 350px;
+  --w-content: 70%;
+  --gutter: 5%;
+
+  /* Motion */
+  --t-nav: 0.5s;
+  --t-image: 0.4s;
+  --ease: ease-out;
+}
