@@ -1,5 +1,37 @@
 <script setup lang="ts">
+import { computed, ref } from 'vue'
+import manifest from '../generated/images.json'
 import ResponsiveImage from '../components/ResponsiveImage.vue'
+import { asset } from '../asset'
+import ArtLightbox, { type Slide } from '../components/ArtLightbox.vue'
+
+const POSTER = 'dwaler-kunsttraject-2026.jpeg'
+const ALT =
+  'Affiche van de tentoonstelling Dwaler van Marijke de Vries, Kunsttraject-etalages in de Staatsliedenbuurt, Amsterdam, 2 september tot en met 14 november 2026'
+
+interface Entry {
+  width: number
+  height: number
+  sources: Record<string, { entries: { w: number; url: string }[] }>
+}
+const entry = (manifest.images as unknown as Record<string, Entry>)[POSTER]
+
+const slides = computed<Slide[]>(() => {
+  const webp = entry.sources.webp.entries
+  return [
+    {
+      src: asset(webp[webp.length - 1].url),
+      srcset: webp.map((v) => `${asset(v.url)} ${v.w}w`).join(', '),
+      width: entry.width,
+      height: entry.height,
+      thumb: asset(webp[0].url),
+      caption: 'Dwaler — Kunsttraject-etalages, Staatsliedenbuurt, Amsterdam, 2 september t/m 14 november 2026',
+      alt: ALT,
+    },
+  ]
+})
+
+const lightbox = ref<InstanceType<typeof ArtLightbox> | null>(null)
 </script>
 
 <template>
@@ -16,13 +48,18 @@ import ResponsiveImage from '../components/ResponsiveImage.vue'
     </p>
 
     <p class="poster">
-      <ResponsiveImage
-        src="dwaler-kunsttraject-2026.jpeg"
-        alt="Affiche van de tentoonstelling Dwaler van Marijke de Vries, Kunsttraject-etalages in de Staatsliedenbuurt, Amsterdam, 2 september tot en met 14 november 2026"
-        sizes="(max-width: 780px) 90vw, 420px"
-        eager
-      />
+      <button type="button" class="thumb" @click="lightbox?.open(0)">
+        <ResponsiveImage
+          :src="POSTER"
+          :alt="ALT"
+          sizes="(max-width: 780px) 90vw, 560px"
+          eager
+        />
+        <span class="sr-only">Bekijk de affiche op volledig scherm</span>
+      </button>
     </p>
+
+    <ArtLightbox ref="lightbox" :slides="slides" />
   </div>
 </template>
 
@@ -37,6 +74,28 @@ import ResponsiveImage from '../components/ResponsiveImage.vue'
 }
 
 .poster {
-  max-width: 420px;
+  max-width: 560px;
+}
+
+/* Same affordance as the werken thumbnails: a real button, hover fade. */
+.thumb {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.thumb :deep(img) {
+  width: 100%;
+  height: auto;
+  opacity: 1;
+  transition: opacity var(--t-image) var(--ease);
+}
+
+.thumb:hover :deep(img),
+.thumb:focus-visible :deep(img) {
+  opacity: 0.85;
 }
 </style>

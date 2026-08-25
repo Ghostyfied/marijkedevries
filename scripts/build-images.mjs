@@ -71,9 +71,11 @@ async function processImage(file) {
   const image = sharp(file)
   const { width, height } = await image.metadata()
 
-  // Never upscale. Always emit at least one width, even for tiny masters.
-  const widths = WIDTHS.filter((w) => w <= width)
-  if (widths.length === 0) widths.push(width)
+  // Never upscale. A master narrower than the largest target also gets its
+  // native width as the top variant, so small sources (the Dwaler affiche is
+  // 459px) serve at full resolution instead of capping at the step below.
+  const widths = WIDTHS.filter((w) => w < width)
+  if (width <= WIDTHS[WIDTHS.length - 1]) widths.push(width)
 
   const sources = {}
   for (const { ext, type, opts } of FORMATS) {

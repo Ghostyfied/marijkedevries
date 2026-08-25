@@ -41,12 +41,21 @@ async function build() {
     pswpModule: () => import('photoswipe'),
     bgOpacity: 0.8,
     padding: { top: 30, bottom: 130, left: 30, right: 30 },
+    // PhotoSwipe's own 'fit' never scales up, which leaves a small image (the
+    // Dwaler affiche is 459px wide) floating at natural size. This fits the
+    // viewport in both directions; for images larger than the viewport it is
+    // identical to 'fit'.
+    initialZoomLevel: (zl) => {
+      if (!zl.panAreaSize || !zl.elementSize) return zl.fit
+      return Math.min(zl.panAreaSize.x / zl.elementSize.x, zl.panAreaSize.y / zl.elementSize.y)
+    },
     showHideAnimationType: 'fade',
     zoomAnimationDuration: false,
     counter: false,
     zoom: false,
-    arrowPrev: true,
-    arrowNext: true,
+    // With a single slide there is nothing to navigate to.
+    arrowPrev: props.slides.length > 1,
+    arrowNext: props.slides.length > 1,
     bgClickAction: 'close',
     imageClickAction: 'next',
     tapAction: 'next',
@@ -67,6 +76,8 @@ async function build() {
         render()
       },
     })
+
+    if (props.slides.length < 2) return
 
     pswp.pswp?.ui?.registerElement({
       name: 'thumbstrip',
