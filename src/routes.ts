@@ -1,8 +1,10 @@
 import type { RouteRecordRaw } from 'vue-router'
 
 /**
- * The six pages of the live site. `title` and `description` feed per-page
- * <head> tags — the original shipped one identical title across every page.
+ * The pages of the site, in nav order — restructured August 2026 on Marijke's
+ * feedback: nieuws split out of contact into its own page, and an archief added
+ * for material about past exhibitions. `title` and `description` feed the
+ * per-page <head> tags.
  */
 export const routes: RouteRecordRaw[] = [
   {
@@ -14,6 +16,17 @@ export const routes: RouteRecordRaw[] = [
       title: 'Marijke de Vries',
       description:
         'Beeldend kunstenaar Marijke de Vries — schilderijen, werken op perspex en tekeningen. Woont en werkt in Amsterdam.',
+    },
+  },
+  {
+    path: '/nieuws',
+    name: 'nieuws',
+    component: () => import('./pages/NieuwsPage.vue'),
+    meta: {
+      nav: 'nieuws',
+      title: 'Nieuws',
+      description:
+        'Nieuws van Marijke de Vries: de tentoonstelling Dwaler, 2 september t/m 14 november 2026 in de Kunsttraject-etalages, Staatsliedenbuurt Amsterdam.',
     },
   },
   {
@@ -35,7 +48,7 @@ export const routes: RouteRecordRaw[] = [
       nav: "series/thema's",
       title: "Series / thema's",
       description:
-        'Teksten over het werk van Marijke de Vries: Monument voor de Liefde, Liefde in tijden van Corona, Tinder Times en de werken in perspex.',
+        'Teksten over het werk van Marijke de Vries: recent werk, Monument voor de Liefde, Liefde in tijden van Corona, Tinder Times en de werken in perspex.',
     },
   },
   {
@@ -60,9 +73,20 @@ export const routes: RouteRecordRaw[] = [
     name: 'contact',
     component: () => import('./pages/ContactPage.vue'),
     meta: {
-      nav: 'contact/nieuws',
-      title: 'Contact / nieuws',
-      description: 'Contactgegevens van Marijke de Vries en nieuws over exposities.',
+      nav: 'contact',
+      title: 'Contact',
+      description: 'Contactgegevens van Marijke de Vries.',
+    },
+  },
+  {
+    path: '/archief',
+    name: 'archief',
+    component: () => import('./pages/ArchiefPage.vue'),
+    meta: {
+      nav: 'archief',
+      title: 'Archief',
+      description:
+        'Archief van Marijke de Vries: teksten en programma van de tentoonstelling Tinder Times: Monumenten voor Vluchtigheid (2020).',
     },
   },
 ]

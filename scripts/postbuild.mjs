@@ -87,7 +87,7 @@ if (existsSync(pdfSrc)) {
 
 // ------------------------------------------------------------- 4. sitemap ---
 
-const pages = ['/', '/werken', '/series', '/bio', '/links', '/contact']
+const pages = ['/', '/nieuws', '/werken', '/series', '/bio', '/links', '/contact', '/archief']
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${pages

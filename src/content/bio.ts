@@ -1,14 +1,12 @@
 /**
- * The bio page, extracted from the original markup.
- *
- * The original laid the cv out as ten <table>s with a stray
- * `table { font-weight: bold }` rule, which is why every entry rendered bold.
- * Held as rows, the same content can be styled properly and read correctly by
- * screen readers. Text is verbatim from the source, typos included.
+ * The bio page. Generated from docs/CV_MdV_2027_NL.docx, the cv Marijke
+ * supplied in August 2026 — it replaces the 2020 cv scraped from the old site.
+ * The docx (and its English counterpart, held for the future EN version) is
+ * the source of truth; text here is verbatim from it.
  */
 
 export interface CvRow {
-  /** Year or range, e.g. "1992-1994". */
+  /** Year or range, e.g. "1992-1994". Empty for rows without one. */
   period: string
   text: string
 }
@@ -18,44 +16,62 @@ export interface CvSection {
   rows: CvRow[]
 }
 
-/** Lead paragraphs, as Markdown-ish inline HTML is not needed here. */
 export const intro: string[] = [
-  "**Marijke de Vries** woont en werkt in Amsterdam.",
-  "Kort na haar studie aan de Rijksakademie in Amsterdam ontving Marijke de Vries een zilveren Prix de Rome voor haar beginnende kunstpraktijk. Later kwam ze terecht in de wereld van dans en muziek en met name de tango raakte haar bijzonder. Voor een internationaal dansfestival werkte ze jarenlang fulltime als choreograaf en maakte dansproducties. In 2015 pakte Marijke haar beeldende kunstpraktijk weer volledig op met een residentie en expositie in Spanje. Ze begon te werken met nieuw materiaal, perspex, en ontdekte de mogelijkheden van gelaagdheid en transparantie van dit materiaal. Die transparantie werd een uitgangspunt in haar verdere werk.",
-  "Muziek en dans komen ook tot uitdrukking in haar huidige beeldende werk. Beweging, openheid, flow en erotiek zijn belangrijke elementen. Daarbij is Marijke altijd op zoek naar verbinding, zoals op dit moment tot uitdrukking komt in haar project over online daten: ‘Tinder Times', en nog recenter in de thematiek ‘Liefde in tijden van Corona’. Net als bij muziek en dans, is haar beeldende werk een drager van de expressie van passionele energie en de lyriek van het onzegbare."
+  "**Marijke de Vries**",
+  "Atelier: Albert Cuypstraat 241, Amsterdam (topstudio, geselecteerd door CAWA).",
+  "Opleiding: Rijksakademie van Beeldende Kunsten, Amsterdam.",
+  "Kunstenaarslid van Arti en de Stedelijk Museum Circle.",
+  "De huidige praktijk van de Vries als autonoom beeldend kunstenaar begon op de Rijksakademie in 1980. Van 1998-2013 maakte zij interdisciplinaire kunst als artistiek directeur/choreograaf van dansproducties en performances in onder andere Melkweg, Muziekgebouw aan 't IJ, theater De Meervaart. Deze interdisciplinaire producties kregen brede persaandacht, onder andere op het NOS journaal, en in bekende tijdschriften en kranten zoals de Volkskrant, Trouw, Het Parool — zelfs op de voorpagina."
 ]
 
 export const cv: CvSection[] = [
   {
+    "heading": "Opleiding",
+    "rows": [
+      {
+        "period": "",
+        "text": "Rijksakademie Amsterdam, beeldende en monumentale kunst"
+      }
+    ]
+  },
+  {
     "heading": "Solo exposities",
     "rows": [
       {
+        "period": "2027",
+        "text": "Arti et Amicitiae, Amsterdam"
+      },
+      {
+        "period": "2026",
+        "text": "Kunsttraject, stichting Kunsttraject, Amsterdam West"
+      },
+      {
+        "period": "2026",
+        "text": "Alma del Sur, interdisciplinair project, Willem de Zwijgerkerk, Amsterdam"
+      },
+      {
+        "period": "2025-2026",
+        "text": "Gallery Amstel 41 (Amsterdam)"
+      },
+      {
         "period": "2020",
-        "text": "Tinder Times/monumenten voor vluchtigheid, Sexyland, Amsterdam; curator Fleur Feringa"
+        "text": "Sexyland, Amsterdam, interdisciplinair project: Tinder Times, thema: online daten. Curator Fleur Feringa (Galerie Fleurenwouter, Amsterdam)"
       },
       {
         "period": "2018",
-        "text": "'Onderweg', Bagagehal/Loods 6, Amsterdam (curator; performance 'Panta Rei') *interdisciplinair*"
-      },
-      {
-        "period": "2017",
-        "text": "WG Kunst, Amsterdam"
+        "text": "Bagagehal/Loods 6, Amsterdam: geselecteerd (interdisciplinair) project van het jaar met expositie en dans performances"
       },
       {
         "period": "2015",
-        "text": "'Falling Angel', Xávia, Spain"
+        "text": "'Falling Angel', Gallery Artefactus, Xávia, Spanje"
       },
       {
         "period": "2009",
-        "text": "AIR Proyecto 'Ace, Buenos Aires, Argentina"
-      },
-      {
-        "period": "2006",
-        "text": "De Duif, Amsterdam"
+        "text": "Solo-expositie Artist in Residence, Proyecto 'Ace, Buenos Aires, Argentinië"
       },
       {
         "period": "1997",
-        "text": "Presentatie opdracht 'Metamorphosen', OSB Bijlmer Amsterdam"
+        "text": "Presentatie percentageregeling opdracht 'Metamorphosen', OSB Bijlmer Amsterdam"
       },
       {
         "period": "1992",
@@ -80,35 +96,31 @@ export const cv: CvSection[] = [
     ]
   },
   {
-    "heading": "Groeps exposities",
+    "heading": "Groepsexposities",
     "rows": [
       {
-        "period": "2020",
-        "text": "Nieuw Dakota: De Passage"
+        "period": "2022-2026",
+        "text": "Gallery KunstKan (What art can do), Amsterdam/Venetië/Londen"
       },
       {
         "period": "2020",
-        "text": "Arti et Amicitiae"
+        "text": "Nieuw Dakota (project space): 'Corona archives'"
+      },
+      {
+        "period": "2019-2025",
+        "text": "Arti et Amicitiae, jaarlijks"
       },
       {
         "period": "2019",
         "text": "Amsterdam Art Weekend, Looiersgracht 60.org: Printing Plant met Rijksakademie"
       },
       {
-        "period": "2019 (november)",
-        "text": "Arti, Amsterdam"
+        "period": "2018",
+        "text": "Looiersgracht 60.org: Printing Plant 2018 met Rijksakademie"
       },
       {
-        "period": "2018 (november)",
-        "text": "Looiersgracht 60.org: Printing Plant 2018, Rijksakademie alumni"
-      },
-      {
-        "period": "2018 (september)",
-        "text": "Kunstmanifestatie 'Onderweg', Bagagehal, Amsterdam"
-      },
-      {
-        "period": "2018 ((juli)",
-        "text": "Arti et Amicitiae, Amsterdam ('Update', Nieuwe leden expositie)"
+        "period": "2018",
+        "text": "Arti, Amsterdam ('Update', Nieuwe leden expositie). Deelnemend kunstenaar en performer"
       },
       {
         "period": "2017",
@@ -116,23 +128,23 @@ export const cv: CvSection[] = [
       },
       {
         "period": "2017",
-        "text": "Arti et Amicitiae, Amsterdam (Salon)"
+        "text": "Arti, Amsterdam"
       },
       {
         "period": "2015",
-        "text": "Boekpresentatie/ duo expositie Kompaszaal, Amsterdam"
+        "text": "Boekpresentatie, expositie, choreografie, Kompaszaal, Amsterdam (presentatie VoordeKunst crowdfunding) Falling Angel project"
       },
       {
         "period": "2014",
         "text": "Cobra museum, Amstelveen"
       },
       {
-        "period": "2013-2014",
-        "text": "FDA 'Follow the Money' , Amsterdam met oa Aldert Mantje"
+        "period": "2013",
+        "text": "FDA 'Follow the Money', Amsterdam, curator Aldert Mantje"
       },
       {
         "period": "1997",
-        "text": "Theater De Krakeling, Amsterdam (project 'Kunstenaarskinderboeken')"
+        "text": "Theater De Krakeling, Amsterdam ('Kunstenaarskinderboeken')"
       },
       {
         "period": "1996",
@@ -152,7 +164,7 @@ export const cv: CvSection[] = [
       },
       {
         "period": "1986",
-        "text": "'Galerie '86', Beurs van Berlage, Amsterdam"
+        "text": "'Galerie '86', kunstbeurs, Beurs van Berlage, Amsterdam"
       },
       {
         "period": "1985",
@@ -164,13 +176,17 @@ export const cv: CvSection[] = [
       },
       {
         "period": "1984",
-        "text": "Gallerie Vassallucci, Amsterdam"
+        "text": "Galerie Vassallucci, Amsterdam"
       }
     ]
   },
   {
     "heading": "A.I.R. (artist in residence)",
     "rows": [
+      {
+        "period": "2025",
+        "text": "R.A.R.O., Buenos Aires"
+      },
       {
         "period": "2015",
         "text": "Fundacion Knecht/Drenth, Callosa, Spanje"
@@ -181,7 +197,7 @@ export const cv: CvSection[] = [
       },
       {
         "period": "1981",
-        "text": "New York"
+        "text": "New York, ministerie van Cultuur"
       }
     ]
   },
@@ -190,7 +206,7 @@ export const cv: CvSection[] = [
     "rows": [
       {
         "period": "1977",
-        "text": "Prix de Rome silver"
+        "text": "Prix de Rome, zilver"
       }
     ]
   },
@@ -199,33 +215,41 @@ export const cv: CvSection[] = [
     "rows": [
       {
         "period": "2020",
-        "text": "Amsterdams Fonds voor de kunst - projectsubsidie"
+        "text": "Amsterdams Fonds voor de Kunst – projectsubsidie Tinder Times project"
       },
       {
         "period": "2020",
-        "text": "Gemeente Amsterdam, Kunst en Cultuur , projectsubsidie"
+        "text": "Gemeente Amsterdam, projectsubsidie Tinder Times project"
       },
       {
         "period": "1992-1994",
-        "text": "Stipendia, Fonds voor Beeldende Kunst"
+        "text": "Stipendia, Fonds voor Beeldende Kunst (huidige Mondriaan Fonds)"
       },
       {
         "period": "1987-1989",
-        "text": "Stipendia, Fonds voor Beeldende Kunst"
+        "text": "Stipendia, Fonds voor Beeldende Kunst (id)"
       },
       {
         "period": "1982",
-        "text": "Stipendium, Ministerie v Cultuur"
+        "text": "Stipendium, Ministerie van Cultuur"
       },
       {
         "period": "1981",
-        "text": "Reisbeurs New York, Ministerie v Cultuur"
+        "text": "Reisbeurs New York, Ministerie van Cultuur"
       }
     ]
   },
   {
-    "heading": "Publicaties",
+    "heading": "Publicaties, pers",
     "rows": [
+      {
+        "period": "2020",
+        "text": "Interviews en recensies project Tinder Times. Onder andere: NRC, Vice.nl, NPO Radio2"
+      },
+      {
+        "period": "2020",
+        "text": "Curator Rob Perrée, 'Monument voor de Liefde'"
+      },
       {
         "period": "2015",
         "text": "'Falling Angel'"
@@ -240,7 +264,7 @@ export const cv: CvSection[] = [
       },
       {
         "period": "1989",
-        "text": "\"BKV\" , Fonds voor Beeldende Kunst"
+        "text": "Catalogus \"BKV\", Fonds voor Beeldende Kunst"
       }
     ]
   },
@@ -249,11 +273,11 @@ export const cv: CvSection[] = [
     "rows": [
       {
         "period": "2019",
-        "text": "Multiple: Tinder Times, kunstenaarsboek oa bij AGA lab"
+        "text": "Multiple: Tinder Times, kunstenaarsboek gedrukt in AGA lab"
       },
       {
         "period": "2009",
-        "text": "Multiples bij Proyecto 'Ace, Buenos Aires"
+        "text": "Multiples, Proyecto 'Ace, Buenos Aires"
       },
       {
         "period": "1994",
@@ -261,32 +285,32 @@ export const cv: CvSection[] = [
       },
       {
         "period": "1992",
-        "text": "Zeefdruk \"Z.T.\" , Zeger Reijers' Multiples, Rotterdam"
+        "text": "2 zeefdrukken, Zeger Reijers' Multiples, Rotterdam"
       },
       {
         "period": "1992",
-        "text": "Zeefdruk map \"TIBIDABO\" , Zeger Reijers' Multiples, Rotterdam"
+        "text": "Zeefdrukmap \"TIBIDABO\", Zeger Reijers' Multiples, Rotterdam"
       }
     ]
   },
   {
-    "heading": "Opdrachten",
+    "heading": "(Monumentale) opdrachten",
     "rows": [
       {
         "period": "1996-1997",
-        "text": "Monumentale opdracht Open Schoolgemeenschap Bijlmer Amsterdams Fonds voor de Kunst/ gemeente Amsterdam percentageregeling"
+        "text": "Monumentale opdracht Open Schoolgemeenschap Bijlmer, door Amsterdams Fonds voor de Kunst/gemeente Amsterdam, percentageregeling"
       },
       {
         "period": "1992",
-        "text": "Opdracht zeefdruk \"When most I wink\" SBK Amsterdam, druk Z. Reijers"
+        "text": "Opdracht zeefdruk \"When most I wink\": SBK's uitgenodigd kunstenaar bij het 25-jarig bestaan van SBK Amsterdam. Gedrukt met Z. Reijers"
       },
       {
         "period": "1991",
-        "text": "Vrije monumentale opdracht NDSM opdracht gemeente Amsterdam"
+        "text": "Monumentale opdracht NDSM, Amsterdam, opdracht gemeente Amsterdam"
       },
       {
         "period": "1980",
-        "text": "Muurschildering Kinkerbuurt opdracht gemeente Amsterdam"
+        "text": "Muurschildering, Kinkerbuurt, Amsterdam. Opdracht gemeente Amsterdam"
       }
     ]
   },
@@ -294,17 +318,8 @@ export const cv: CvSection[] = [
     "heading": "Aankopen",
     "rows": [
       {
-        "period": "1985-heden:",
-        "text": "aankopen via galeries, SBK en door gemeente Amsterdam en Schiedam"
-      }
-    ]
-  },
-  {
-    "heading": "Pers",
-    "rows": [
-      {
-        "period": "2020",
-        "text": "interviews over project Tinder Times op Vice.nl en NPO radio2"
+        "period": "1985-2025",
+        "text": "Aankopen door galeries, verzamelaars, SBK's en de gemeenten Amsterdam en Schiedam (Gemeenteaankopen)"
       }
     ]
   }
