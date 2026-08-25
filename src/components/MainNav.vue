@@ -1,14 +1,38 @@
 <script setup lang="ts">
-import { navRoutes } from '../routes'
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+import { navRoutesFor } from '../routes'
+import { useLocale } from '../locale'
 
-const items = navRoutes.map((r) => ({ to: r.path, label: r.meta!.nav as string }))
+const route = useRoute()
+const { lang, c } = useLocale()
+
+const items = computed(() =>
+  navRoutesFor(lang.value).map((r) => ({ to: r.path as string, label: r.meta!.nav as string })),
+)
+
+/*
+ * The language toggle. The original site had exactly this — an 'eng' item at
+ * the bottom of the nav (li.language), commented out in 2019 when the English
+ * content went stale. It links to the counterpart of the current page, so
+ * switching keeps your place.
+ */
+const toggle = computed(() => ({
+  to: route.meta.counterpart ?? (lang.value === 'nl' ? '/en' : '/'),
+  label: c.value.ui.toggleLabel,
+}))
 </script>
 
 <template>
-  <nav class="main-nav" aria-label="Hoofdnavigatie">
+  <nav class="main-nav" :aria-label="c.ui.navLabel">
     <ul>
       <li v-for="item in items" :key="item.to">
         <RouterLink :to="item.to">{{ item.label }}</RouterLink>
+      </li>
+      <li class="language">
+        <RouterLink :to="toggle.to" :lang="lang === 'nl' ? 'en' : 'nl'">{{
+          toggle.label
+        }}</RouterLink>
       </li>
     </ul>
   </nav>
@@ -32,6 +56,11 @@ li {
   line-height: var(--lh-nav);
 }
 
+/* Same offset the original gave its li.language. */
+li.language {
+  margin-top: 15px;
+}
+
 a {
   color: var(--c-nav);
   display: inline-block;
@@ -42,6 +71,10 @@ a {
 a:hover,
 a.router-link-exact-active {
   color: var(--c-nav-active);
+}
+
+li.language a.router-link-exact-active {
+  color: var(--c-nav);
 }
 
 @media (max-width: 780px) {

@@ -15,7 +15,14 @@ export interface Slide {
   alt: string
 }
 
-const props = defineProps<{ slides: Slide[] }>()
+const props = withDefaults(
+  defineProps<{
+    slides: Slide[]
+    /** aria-label for the thumbnail strip, localised by the caller. */
+    stripLabel?: string
+  }>(),
+  { stripLabel: 'Werken in deze serie' },
+)
 
 const lightbox = shallowRef<PhotoSwipeLightbox | null>(null)
 
@@ -86,7 +93,7 @@ async function build() {
       appendTo: 'root',
       onInit: (el, instance) => {
         el.setAttribute('role', 'tablist')
-        el.setAttribute('aria-label', 'Werken in deze serie')
+        el.setAttribute('aria-label', props.stripLabel)
 
         const buttons = props.slides.map((slide, i) => {
           const b = document.createElement('button')

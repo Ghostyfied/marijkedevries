@@ -1,5 +1,13 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import ResponsiveImage from '../components/ResponsiveImage.vue'
+import { useLocale } from '../locale'
+
+const { c } = useLocale()
+
+/** The first paragraph may carry **bold** markers (the cv-style lead). */
+const first = computed(() => c.value.home.paragraphs[0])
+const rest = computed(() => c.value.home.paragraphs.slice(1))
 </script>
 
 <template>
@@ -8,29 +16,15 @@ import ResponsiveImage from '../components/ResponsiveImage.vue'
     <p class="home-image">
       <ResponsiveImage
         src="model_session_bas.jpg"
-        alt="Marijke de Vries aan het werk in haar atelier"
+        :alt="c.home.imageAlt"
         sizes="(max-width: 780px) 90vw, 260px"
         :height="341"
         eager
       />
     </p>
 
-    <!-- Artist statement, verbatim from Marijke's mail of 23 August 2026. -->
-    <p>
-      Marijke de Vries woont en werkt in Amsterdam en is alumna van de Rijksakademie en Prix de
-      Rome winnaar.
-    </p>
-    <p class="statement">
-      ‘Schilderen is een emotionele daad waarin zich betekenissen en verhalen invoegen. Mijn werk
-      heeft een lyrisch aspect; ik ben ook danser, muziek en beweging zijn deel van mijn leven en
-      verbonden met mijn beeldende kunst. Mijn werk heeft figuratieve en abstracte elementen. Ik
-      wil kijkers hun eigen reis laten maken in mijn werk en laat graag iets aan de verbeelding
-      over. In mijn materiaalgebruik ben ik onder meer geboeid door gelaagdheid en transparantie.
-      Om dit te onderzoeken heb ik (ook) met perspex gewerkt. Naast het maken van beeldende
-      objecten, zoals schilderijen, beschouw ik het maken van interdisciplinaire evenementen,
-      performances en projecten gebaseerd op de Argentijnse tango, als een belangrijk onderdeel
-      van mijn kunstpraktijk’
-    </p>
+    <p>{{ first }}</p>
+    <p v-for="para in rest" :key="para.slice(0, 24)" class="statement">{{ para }}</p>
   </div>
 </template>
 

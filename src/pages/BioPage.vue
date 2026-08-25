@@ -1,25 +1,28 @@
 <script setup lang="ts">
-import { cv, intro } from '../content/bio'
+import { computed } from 'vue'
+import { useLocale } from '../locale'
 
-/** Bold lead-in on the first paragraph, matching the original's markup. */
-const leadHtml = intro[0].replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+const { c } = useLocale()
+
+/** Bold lead-in on the first paragraph, matching the cv document. */
+const leadHtml = computed(() =>
+  c.value.bio.intro[0].replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>'),
+)
 </script>
 
 <template>
   <div class="prose">
-    <h1 class="sr-only">Biografie</h1>
+    <h1 class="sr-only">{{ $route.meta.title }}</h1>
 
-    <!-- eslint-disable-next-line vue/no-v-html -- static content from src/content/bio.ts -->
+    <!-- eslint-disable-next-line vue/no-v-html -- static content from src/content -->
     <p v-html="leadHtml" />
-    <p v-for="para in intro.slice(1)" :key="para.slice(0, 24)">{{ para }}</p>
+    <p v-for="para in c.bio.intro.slice(1)" :key="para.slice(0, 24)">{{ para }}</p>
 
-    <section v-for="section in cv" :key="section.heading">
+    <section v-for="section in c.bio.cv" :key="section.heading">
       <h2 class="cv-heading">{{ section.heading }}</h2>
       <table class="cv-table">
         <caption class="sr-only">
-          {{
-            section.heading
-          }}
+          {{ section.heading }}
         </caption>
         <tbody>
           <tr v-for="(row, i) in section.rows" :key="i">

@@ -9,18 +9,7 @@
  * stays a link.
  */
 
-export interface ArchiveBlock {
-  heading?: string
-  lines: string[]
-}
-
-export interface ArchiveItem {
-  title: string
-  period: string
-  blocks: ArchiveBlock[]
-  body: string[]
-  pdf?: { label: string; href: string }
-}
+import type { ArchiveItem } from '../types'
 
 export const items: ArchiveItem[] = [
   {

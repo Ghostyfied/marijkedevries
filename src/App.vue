@@ -3,11 +3,13 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useHead } from '@unhead/vue'
 import MainNav from './components/MainNav.vue'
+import { useLocale } from './locale'
 
 const SITE_NAME = 'Marijke de Vries'
 const SITE_URL = 'https://marijkedevries.nl'
 
 const route = useRoute()
+const { lang, c } = useLocale()
 
 const title = computed(() =>
   route.meta.title === SITE_NAME ? SITE_NAME : `${route.meta.title} — ${SITE_NAME}`,
@@ -15,8 +17,27 @@ const title = computed(() =>
 const description = computed(() => route.meta.description)
 const canonical = computed(() => `${SITE_URL}${route.path}`)
 
+/*
+ * hreflang alternates: each page points at itself, its counterpart in the
+ * other language, and marks the Dutch page as the default — Dutch is the
+ * site's original language and its URLs are the ones with inbound links.
+ */
+const alternates = computed(() => {
+  const self = { lang: lang.value, href: canonical.value }
+  const other = {
+    lang: lang.value === 'nl' ? 'en' : 'nl',
+    href: `${SITE_URL}${route.meta.counterpart}`,
+  }
+  const nlHref = lang.value === 'nl' ? self.href : other.href
+  return [
+    { rel: 'alternate', hreflang: self.lang, href: self.href },
+    { rel: 'alternate', hreflang: other.lang, href: other.href },
+    { rel: 'alternate', hreflang: 'x-default', href: nlHref },
+  ]
+})
+
 useHead({
-  htmlAttrs: { lang: 'nl' },
+  htmlAttrs: { lang },
   title,
   meta: [
     { name: 'description', content: description },
@@ -25,12 +46,12 @@ useHead({
     { property: 'og:title', content: title },
     { property: 'og:description', content: description },
     { property: 'og:url', content: canonical },
-    { property: 'og:locale', content: 'nl_NL' },
+    { property: 'og:locale', content: computed(() => (lang.value === 'nl' ? 'nl_NL' : 'en_GB')) },
     // The studio photograph from the home page, at a size that suits a share card.
     { property: 'og:image', content: `${SITE_URL}/img/model-session-bas/1200.jpg` },
     { name: 'twitter:card', content: 'summary_large_image' },
   ],
-  link: [{ rel: 'canonical', href: canonical }],
+  link: computed(() => [{ rel: 'canonical', href: canonical.value }, ...alternates.value]),
   script: [
     {
       type: 'application/ld+json',
@@ -53,7 +74,7 @@ useHead({
 </script>
 
 <template>
-  <a class="skip" href="#main">Naar de inhoud</a>
+  <a class="skip" href="#main">{{ c.ui.skipToContent }}</a>
 
   <div class="layout">
     <p class="site-title">Marijke de Vries</p>

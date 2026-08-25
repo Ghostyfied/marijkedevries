@@ -9,37 +9,7 @@
  * build writes from assets/originals/.
  */
 
-export interface Work {
-  kind: 'image'
-  /** Key into the generated image manifest. */
-  image: string
-  /** Thumbnail height in px at desktop, as the original set it. */
-  displayHeight: number
-  title: string
-  medium?: string
-  dimensions?: string
-  year?: number
-  /** Trailing remark from the original caption, e.g. "met details". */
-  note?: string
-}
-
-export interface WorkVideo {
-  kind: 'video'
-  /** Key into the generated media manifest. */
-  src: string
-}
-
-export interface Group {
-  /** Sub-heading inside a series, e.g. "works on canvas". */
-  label?: string
-  works: (Work | WorkVideo)[]
-}
-
-export interface Series {
-  id: string
-  title: string
-  groups: Group[]
-}
+import type { Series } from '../types'
 
 export const series: Series[] = [
   {

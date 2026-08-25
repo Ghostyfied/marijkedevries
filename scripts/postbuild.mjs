@@ -43,19 +43,22 @@ if (legacyUrls.length === 0) throw new Error('No legacy URLs parsed from src/leg
 
 const escape = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;')
 
-function redirectHtml({ to, reason }) {
+function redirectHtml({ from, to, reason }) {
   const href = `${BASE}${to.replace(/^\//, '')}`
   const target = `${SITE}${to}`
-  const note =
-    reason === 'retired'
+  // Stubs under the old /eng/ tree speak English, the rest Dutch.
+  const english = from.startsWith('/eng/')
+  const note = english
+    ? 'This page has moved. You are being redirected to:'
+    : reason === 'retired'
       ? 'Deze pagina bestaat niet meer. U wordt doorgestuurd naar:'
       : 'Deze pagina is verhuisd. U wordt doorgestuurd naar:'
   return `<!doctype html>
-<html lang="nl">
+<html lang="${english ? 'en' : 'nl'}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Verhuisd — Marijke de Vries</title>
+<title>${english ? 'Moved' : 'Verhuisd'} — Marijke de Vries</title>
 <link rel="canonical" href="${escape(target)}">
 <meta http-equiv="refresh" content="0; url=${escape(href)}">
 <meta name="robots" content="noindex, follow">
@@ -87,7 +90,9 @@ if (existsSync(pdfSrc)) {
 
 // ------------------------------------------------------------- 4. sitemap ---
 
-const pages = ['/', '/nieuws', '/werken', '/series', '/bio', '/links', '/contact', '/archief']
+const nlPages = ['/', '/nieuws', '/werken', '/series', '/bio', '/links', '/contact', '/archief']
+const enPages = ['/en', '/en/news', '/en/works', '/en/series', '/en/bio', '/en/links', '/en/contact', '/en/archive']
+const pages = [...nlPages, ...enPages]
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${pages

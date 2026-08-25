@@ -1,12 +1,14 @@
 <script setup lang="ts">
-import { links } from '../content/links'
+import { useLocale } from '../locale'
+
+const { c } = useLocale()
 </script>
 
 <template>
   <div class="prose">
     <h1 class="sr-only">Links</h1>
     <ul class="link-list">
-      <li v-for="link in links" :key="link.href">
+      <li v-for="link in c.links" :key="link.href">
         <a :href="link.href" target="_blank" rel="noopener">{{ link.label }}</a>
         <span v-if="link.description"> — {{ link.description }}</span>
       </li>

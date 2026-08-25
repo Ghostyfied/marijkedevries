@@ -4,10 +4,10 @@ import manifest from '../generated/images.json'
 import ResponsiveImage from '../components/ResponsiveImage.vue'
 import { asset } from '../asset'
 import ArtLightbox, { type Slide } from '../components/ArtLightbox.vue'
+import { useLocale } from '../locale'
 
 const POSTER = 'dwaler-kunsttraject-2026.jpeg'
-const ALT =
-  'Affiche van de tentoonstelling Dwaler van Marijke de Vries, Kunsttraject-etalages in de Staatsliedenbuurt, Amsterdam, 2 september tot en met 14 november 2026'
+const { c } = useLocale()
 
 interface Entry {
   width: number
@@ -25,8 +25,8 @@ const slides = computed<Slide[]>(() => {
       width: entry.width,
       height: entry.height,
       thumb: asset(webp[0].url),
-      caption: 'Dwaler — Kunsttraject-etalages, Staatsliedenbuurt, Amsterdam, 2 september t/m 14 november 2026',
-      alt: ALT,
+      caption: c.value.nieuws.posterCaption,
+      alt: c.value.nieuws.posterAlt,
     },
   ]
 })
@@ -36,30 +36,24 @@ const lightbox = ref<InstanceType<typeof ArtLightbox> | null>(null)
 
 <template>
   <div class="prose">
-    <h1 class="sr-only">Nieuws</h1>
+    <h1 class="sr-only">{{ $route.meta.title }}</h1>
 
     <!-- Details as they appear on the affiche Marijke supplied. -->
     <p>
-      <strong>Dwaler</strong><br />
-      Kunsttraject-etalages in de Staatsliedenbuurt, Amsterdam<br />
-      2 september t/m 14 november 2026<br />
-      Van Boetzelaerstraat 56, 80 en 92 en Van Hogendorpstraat 205<br />
-      De schilderijen zijn dag en nacht te zien.
+      <template v-for="(line, i) in c.nieuws.lines" :key="line">
+        <strong v-if="i === 0">{{ line }}</strong>
+        <template v-else><br />{{ line }}</template>
+      </template>
     </p>
 
     <p class="poster">
       <button type="button" class="thumb" @click="lightbox?.open(0)">
-        <ResponsiveImage
-          :src="POSTER"
-          :alt="ALT"
-          sizes="(max-width: 780px) 90vw, 560px"
-          eager
-        />
-        <span class="sr-only">Bekijk de affiche op volledig scherm</span>
+        <ResponsiveImage :src="POSTER" :alt="c.nieuws.posterAlt" sizes="(max-width: 780px) 90vw, 560px" eager />
+        <span class="sr-only">{{ c.nieuws.fullscreenLabel }}</span>
       </button>
     </p>
 
-    <ArtLightbox ref="lightbox" :slides="slides" />
+    <ArtLightbox ref="lightbox" :slides="slides" :strip-label="c.works.stripLabel" />
   </div>
 </template>
 

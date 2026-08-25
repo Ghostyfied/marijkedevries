@@ -63,7 +63,8 @@ jobs:
 
       - name: Check the build produced every page
         run: |
-          for page in index nieuws werken series bio links contact archief; do
+          for page in index nieuws werken series bio links contact archief \
+                      en en/news en/works en/series en/bio en/links en/contact en/archive; do
             test -s "dist/$page.html" || { echo "missing dist/$page.html"; exit 1; }
           done
           test -s dist/CNAME || { echo "missing dist/CNAME"; exit 1; }

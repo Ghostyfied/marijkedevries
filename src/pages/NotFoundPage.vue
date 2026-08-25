@@ -1,10 +1,15 @@
 <template>
   <div class="prose">
-    <h1>Pagina niet gevonden</h1>
-    <p>
+    <h1>Pagina niet gevonden / Page not found</h1>
+    <p lang="nl">
       Deze pagina bestaat niet (meer). Ga naar de
       <RouterLink to="/">homepage</RouterLink> of bekijk het
       <RouterLink to="/werken">werk</RouterLink>.
+    </p>
+    <p lang="en">
+      This page does not exist (any more). Go to the
+      <RouterLink to="/en">English homepage</RouterLink> or view the
+      <RouterLink to="/en/works">work</RouterLink>.
     </p>
   </div>
 </template>

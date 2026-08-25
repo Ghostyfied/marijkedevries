@@ -1,13 +1,15 @@
 <script setup lang="ts">
-import { items } from '../content/archief'
+import { useLocale } from '../locale'
 import { asset } from '../asset'
+
+const { c } = useLocale()
 </script>
 
 <template>
   <div class="prose">
-    <h1 class="sr-only">Archief</h1>
+    <h1 class="sr-only">{{ $route.meta.title }}</h1>
 
-    <section v-for="item in items" :key="item.title">
+    <section v-for="item in c.archive" :key="item.title">
       <h2 class="item-title">{{ item.title }} ({{ item.period }})</h2>
 
       <div v-for="block in item.blocks" :key="block.heading" class="block">

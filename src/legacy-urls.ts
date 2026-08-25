@@ -30,12 +30,13 @@ export const legacyUrls: LegacyUrl[] = [
   { from: '/nl/over.html', to: '/series', reason: 'retired' },
   { from: '/nl/projecten.html', to: '/series', reason: 'retired' },
 
-  // The English site, unlinked since 2019 and not part of this rebuild.
-  { from: '/eng/index.html', to: '/', reason: 'retired' },
-  { from: '/eng/works.html', to: '/werken', reason: 'retired' },
-  { from: '/eng/about.html', to: '/series', reason: 'retired' },
-  { from: '/eng/projects.html', to: '/series', reason: 'retired' },
-  { from: '/eng/biography.html', to: '/bio', reason: 'retired' },
-  { from: '/eng/links.html', to: '/links', reason: 'retired' },
-  { from: '/eng/contact.html', to: '/contact', reason: 'retired' },
+  // The old English site, unlinked since 2019, now points at the real
+  // English pages under /en.
+  { from: '/eng/index.html', to: '/en', reason: 'moved' },
+  { from: '/eng/works.html', to: '/en/works', reason: 'moved' },
+  { from: '/eng/about.html', to: '/en/series', reason: 'moved' },
+  { from: '/eng/projects.html', to: '/en/series', reason: 'moved' },
+  { from: '/eng/biography.html', to: '/en/bio', reason: 'moved' },
+  { from: '/eng/links.html', to: '/en/links', reason: 'moved' },
+  { from: '/eng/contact.html', to: '/en/contact', reason: 'moved' },
 ]

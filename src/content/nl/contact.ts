@@ -5,11 +5,7 @@
  * which she asked to keep here.
  */
 
-export interface ContactDetail {
-  label: string
-  value: string
-  href?: string
-}
+import type { ContactDetail } from '../types'
 
 export const details: ContactDetail[] = [
   { label: 'email', value: 'info@marijkedevries.nl', href: 'mailto:info@marijkedevries.nl' },

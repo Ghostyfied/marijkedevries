@@ -5,11 +5,7 @@
  * for the Alma del Sur project.
  */
 
-export interface Link {
-  href: string
-  label: string
-  description: string
-}
+import type { Link } from '../types'
 
 export const links: Link[] = [
   {

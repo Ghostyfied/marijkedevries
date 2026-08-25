@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { details, flyer } from '../content/contact'
+import { useLocale } from '../locale'
 import ResponsiveImage from '../components/ResponsiveImage.vue'
+
+const { c } = useLocale()
 </script>
 
 <template>
@@ -8,7 +10,7 @@ import ResponsiveImage from '../components/ResponsiveImage.vue'
     <h1 class="sr-only">Contact</h1>
 
     <ul class="details">
-      <li v-for="d in details" :key="d.label">
+      <li v-for="d in c.contact.details" :key="d.label">
         <strong>{{ d.label }}:</strong>&#32;
         <a v-if="d.href" :href="d.href">{{ d.value }}</a>
         <span v-else>{{ d.value }}</span>
@@ -17,8 +19,8 @@ import ResponsiveImage from '../components/ResponsiveImage.vue'
 
     <p class="flyer">
       <ResponsiveImage
-        :src="flyer.image"
-        :alt="flyer.alt"
+        src="AAtindertimesflyer4.png"
+        :alt="c.contact.flyerAlt"
         sizes="(max-width: 780px) 60vw, 200px"
       />
     </p>

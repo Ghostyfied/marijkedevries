@@ -1,21 +1,11 @@
 /**
  * The bio page. Generated from docs/CV_MdV_2027_NL.docx, the cv Marijke
- * supplied in August 2026 — it replaces the 2020 cv scraped from the old site.
- * The docx (and its English counterpart, held for the future EN version) is
- * the source of truth; text here is verbatim from it.
+ * supplied in August 2026; the docx is the source of truth, text is verbatim.
  */
 
-export interface CvRow {
-  /** Year or range, e.g. "1992-1994". Empty for rows without one. */
-  period: string
-  text: string
-}
+import type { CvSection } from '../types'
 
-export interface CvSection {
-  heading: string
-  rows: CvRow[]
-}
-
+/** Lead paragraphs; the first carries **bold** markers. */
 export const intro: string[] = [
   "**Marijke de Vries**",
   "Atelier: Albert Cuypstraat 241, Amsterdam (topstudio, geselecteerd door CAWA).",

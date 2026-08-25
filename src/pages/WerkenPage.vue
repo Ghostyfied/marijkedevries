@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { series, type Work } from '../content/works'
+import type { Work } from '../content/types'
 import manifest from '../generated/images.json'
 import ResponsiveImage from '../components/ResponsiveImage.vue'
 import { asset } from '../asset'
 import ArtLightbox, { type Slide } from '../components/ArtLightbox.vue'
+import { useLocale } from '../locale'
+
+const { c } = useLocale()
+const series = computed(() => c.value.works.series)
 
 interface Entry {
   width: number
@@ -23,15 +27,15 @@ function caption(w: Work): string {
 }
 
 /*
- * Alt text is not the caption. Seven of the Falling angel drawings are captioned
+ * Alt text is not the caption. Seven of the Falling Angel drawings are captioned
  * only "untitled", which as alt text tells a screen-reader user nothing and
  * repeats seven times; those get described by their place in the series instead.
  */
 function altFor(w: Work, seriesTitle: string, groupLabel: string | undefined, n: number): string {
   const parts = [w.title, w.medium, w.dimensions && `${w.dimensions} cm`, w.year].filter(Boolean)
   if (parts.length > 1) return parts.join(', ')
-  const where = groupLabel ? `${groupLabel} (${n})` : `werk ${n}`
-  return `${w.title} — ${where} uit de serie ${seriesTitle}`
+  const where = groupLabel ? `${groupLabel} (${n})` : `${c.value.works.workWord} ${n}`
+  return `${w.title} — ${where} ${c.value.works.fromSeries} ${seriesTitle}`
 }
 
 /*
@@ -39,7 +43,7 @@ function altFor(w: Work, seriesTitle: string, groupLabel: string | undefined, n:
  * its alt text, so the grid and the lightbox describe images identically.
  */
 const flat = computed(() =>
-  series.flatMap((s) =>
+  series.value.flatMap((s) =>
     s.groups.flatMap((g) =>
       g.works.map((work, i) => ({ work, seriesTitle: s.title, groupLabel: g.label, n: i + 1 })),
     ),
@@ -75,7 +79,7 @@ const altByImage = computed(() => {
     }
     const i = (seen.get(alt) ?? 0) + 1
     seen.set(alt, i)
-    map.set(image, `${alt} (${i} van ${total})`)
+    map.set(image, `${alt} (${i}/${total})`)
   }
   return map
 })
@@ -115,7 +119,7 @@ function openWork(work: Work) {
 
 <template>
   <div class="prose">
-    <h1 class="sr-only">Werken</h1>
+    <h1 class="sr-only">{{ $route.meta.title }}</h1>
 
     <section v-for="(s, si) in series" :key="s.id" :id="s.id">
       <h2 class="series-title">{{ s.title }}</h2>
@@ -136,7 +140,7 @@ function openWork(work: Work) {
               preload="none"
               playsinline
             >
-              Je browser kan deze video niet afspelen.
+              {{ c.works.videoFallback }}
             </video>
 
             <button v-else type="button" class="thumb" @click="openWork(work)">
@@ -147,14 +151,14 @@ function openWork(work: Work) {
                 sizes="(max-width: 780px) 90vw, 400px"
                 :eager="si === 0 && gi === 0 && wi === 0"
               />
-              <span class="sr-only">Bekijk groter: {{ caption(work) }}</span>
+              <span class="sr-only">{{ c.works.viewLarger }} {{ caption(work) }}</span>
             </button>
           </li>
         </ul>
       </template>
     </section>
 
-    <ArtLightbox ref="lightbox" :slides="slides" />
+    <ArtLightbox ref="lightbox" :slides="slides" :strip-label="c.works.stripLabel" />
   </div>
 </template>
 
