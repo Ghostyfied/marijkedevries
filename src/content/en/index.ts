@@ -48,6 +48,6 @@ export const en: SiteContent = {
   ui: {
     skipToContent: 'Skip to content',
     navLabel: 'Main navigation',
-    toggleLabel: 'nl',
+    toggleLabel: 'NL',
   },
 }

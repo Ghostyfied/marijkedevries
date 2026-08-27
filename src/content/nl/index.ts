@@ -49,6 +49,6 @@ export const nl: SiteContent = {
   ui: {
     skipToContent: 'Naar de inhoud',
     navLabel: 'Hoofdnavigatie',
-    toggleLabel: 'eng',
+    toggleLabel: 'ENG',
   },
 }
