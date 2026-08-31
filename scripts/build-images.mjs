@@ -45,6 +45,26 @@ function slugify(relPath) {
     .replace(/^-+|-+$/g, '')
 }
 
+/**
+ * Distinct masters can slugify identically — 'Swimmers, …' and 'Swimmers_, …'
+ * differ only in punctuation, which slugify strips — and a shared slug means a
+ * shared output directory, with the last writer's derivatives served for both.
+ * Slugs are therefore assigned up front from a sorted list, with a counter
+ * suffix on repeats, so every master keeps its own derivatives.
+ */
+function assignSlugs(files) {
+  const used = new Map()
+  const bySlug = new Map()
+  for (const file of files) {
+    const rel = relative(SRC_DIR, file).split('\\').join('/')
+    const base = slugify(rel)
+    const n = (used.get(base) ?? 0) + 1
+    used.set(base, n)
+    bySlug.set(file, n === 1 ? base : `${base}-${n}`)
+  }
+  return bySlug
+}
+
 async function walk(dir) {
   const out = []
   for (const entry of await readdir(dir, { withFileTypes: true })) {
@@ -61,9 +81,8 @@ async function stale(out, srcMtime) {
   return (await stat(out)).mtimeMs < srcMtime
 }
 
-async function processImage(file) {
+async function processImage(file, slug) {
   const rel = relative(SRC_DIR, file).split('\\').join('/')
-  const slug = slugify(rel)
   const outDir = join(OUT_DIR, slug)
   await mkdir(outDir, { recursive: true })
 
@@ -125,13 +144,15 @@ async function pool(items, limit, worker) {
 }
 
 const started = Date.now()
-const all = await walk(SRC_DIR)
+// Sorted so duplicate-slug numbering is stable across machines and rebuilds.
+const all = (await walk(SRC_DIR)).sort()
 const images = all.filter((f) => RASTER.has(extname(f).toLowerCase()))
 const others = all.filter((f) => !RASTER.has(extname(f).toLowerCase()))
+const slugs = assignSlugs(images)
 
 let done = 0
 const entries = await pool(images, CONCURRENCY, async (file) => {
-  const entry = await processImage(file)
+  const entry = await processImage(file, slugs.get(file))
   done += 1
   if (done % 10 === 0 || done === images.length) {
     process.stdout.write(`[images] ${done}/${images.length}\n`)

@@ -8,8 +8,7 @@
     "images": "node scripts/build-images.mjs",
     "build": "npm run images && vite-ssg build && node scripts/postbuild.mjs",
     "preview": "vite preview",
-    "typecheck": "vue-tsc --noEmit",
-    "migrate:works": "node scripts/migrate-works.mjs"
+    "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
     "@unhead/vue": "^2.1.17",

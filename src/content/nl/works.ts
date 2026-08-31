@@ -1,12 +1,15 @@
 /**
- * The werken page, extracted from the original site's markup.
+ * The werken page. Originally extracted from the old site's markup, since then
+ * HAND-CURATED to Marijke's feedback (removals, moves and relabels of
+ * 31 August 2026) — do not regenerate this file from the content inventory.
  *
- * Captions there were one string per work — "Title ⎪ medium ⎪ 120 x 120 ⎪ 2020" —
+ * Captions were one string per work — "Title ⎪ medium ⎪ 120 x 120 ⎪ 2020" —
  * held in a title attribute that only the lightbox read. Split into fields, they
  * drive the caption, the alt text and the page copy from one place.
  *
  * `image` and `src` are keys into src/generated/images.json, which the image
- * build writes from assets/originals/.
+ * build writes from assets/originals/. Masters removed from the page stay in
+ * assets/originals/ so they can come back without re-supplying files.
  */
 
 import type { Series } from '../types'
@@ -29,24 +32,6 @@ export const series: Series[] = [
           },
           {
             "kind": "image",
-            "image": "love-in-times-of-corona/holding-falling.jpg",
-            "displayHeight": 250,
-            "title": "Holding/falling",
-            "medium": "mixed media on and behind perspex",
-            "dimensions": "140 x 96",
-            "year": 2020
-          },
-          {
-            "kind": "image",
-            "image": "love-in-times-of-corona/harbor.jpg",
-            "displayHeight": 250,
-            "title": "Harbor",
-            "medium": "mixed media and wood on/behind/between two layers of transparent perspex",
-            "dimensions": "95 x 70",
-            "year": 2019
-          },
-          {
-            "kind": "image",
             "image": "love-in-times-of-corona/nathan.jpg",
             "displayHeight": 250,
             "title": "Nathan",
@@ -61,15 +46,6 @@ export const series: Series[] = [
             "title": "Blowjob",
             "medium": "mixed media and plastic on canvas",
             "dimensions": "40 x 34,5",
-            "year": 2020
-          },
-          {
-            "kind": "image",
-            "image": "IMG_9848.jpg",
-            "displayHeight": 250,
-            "title": "The colours of you",
-            "medium": "photo collage and mixed media on perspex",
-            "dimensions": "62 x 77",
             "year": 2020
           },
           {
@@ -97,15 +73,6 @@ export const series: Series[] = [
             "title": "Muze",
             "medium": "drawin",
             "dimensions": "12,5 x 12,5",
-            "year": 2020
-          },
-          {
-            "kind": "image",
-            "image": "Swimmers, detail of dyptich 200 x 200 cm .jpg",
-            "displayHeight": 200,
-            "title": "’swimmers’",
-            "medium": "mixed media on canvas",
-            "dimensions": "200 x 200",
             "year": 2020
           },
           {
@@ -172,20 +139,11 @@ export const series: Series[] = [
             "medium": "mixed media op rijstpapier, serie Erik",
             "dimensions": "50 x 78",
             "year": 2019
-          },
-          {
-            "kind": "image",
-            "image": "tinder-times/shy.jpg",
-            "displayHeight": 250,
-            "title": "Shy",
-            "medium": "model painting on ricepaper",
-            "dimensions": "65 x 50",
-            "year": 2019
           }
         ]
       },
       {
-        "label": "works on canvas",
+        "label": "works on canvas 2019-2020",
         "works": [
           {
             "kind": "image",
@@ -226,15 +184,6 @@ export const series: Series[] = [
           },
           {
             "kind": "image",
-            "image": "tinder-times/blue-eyes.jpg",
-            "displayHeight": 150,
-            "title": "Blueeyes",
-            "medium": "mixed media, plastic on canvas",
-            "dimensions": "32,5 x 24",
-            "year": 2019
-          },
-          {
-            "kind": "image",
             "image": "Room, 24 x 18, oil on canvas.jpg",
             "displayHeight": 150,
             "title": "Room",
@@ -249,11 +198,12 @@ export const series: Series[] = [
         "works": [
           {
             "kind": "image",
-            "image": "tinder-times/complementary.jpg",
+            "image": "love-in-times-of-corona/harbor.jpg",
             "displayHeight": 250,
-            "title": "Complimentary",
-            "medium": "mixed media, paper, perspex",
-            "year": 2020
+            "title": "Harbor",
+            "medium": "mixed media and wood on/behind/between two layers of transparent perspex",
+            "dimensions": "95 x 70",
+            "year": 2019
           },
           {
             "kind": "image",
@@ -270,15 +220,6 @@ export const series: Series[] = [
             "displayHeight": 250,
             "title": "Stranger in a strange land (detail)",
             "dimensions": "175 x 116",
-            "year": 2019
-          },
-          {
-            "kind": "image",
-            "image": "tinder-times/selfcare.jpg",
-            "displayHeight": 250,
-            "title": "Selfcare",
-            "medium": "oil on canvas, mixed media on perspex and cardboard",
-            "dimensions": "50,5x 35",
             "year": 2019
           }
         ]
