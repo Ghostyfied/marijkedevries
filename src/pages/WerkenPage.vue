@@ -20,7 +20,13 @@ const images = manifest.images as unknown as Record<string, Entry>
 const media = manifest.media as Record<string, string>
 
 /** "Titel, mixed media on canvas, 120 x 120 cm, 2020" — as the original captioned it. */
-function caption(w: Work): string {
+function caption(w: {
+  title: string
+  medium?: string
+  dimensions?: string
+  year?: number
+  note?: string
+}): string {
   return [w.title, w.medium, w.dimensions && `${w.dimensions} cm`, w.year, w.note]
     .filter(Boolean)
     .join(', ')
@@ -131,7 +137,9 @@ function openWork(work: Work) {
           <li
             v-for="(work, wi) in group.works"
             :key="wi"
-            :style="{ '--h': `${work.kind === 'image' ? work.displayHeight : 250}px` }"
+            :style="{
+              '--h': work.kind === 'link' ? 'auto' : `${work.kind === 'image' ? work.displayHeight : 250}px`,
+            }"
           >
             <video
               v-if="work.kind === 'video'"
@@ -142,6 +150,11 @@ function openWork(work: Work) {
             >
               {{ c.works.videoFallback }}
             </video>
+
+            <p v-else-if="work.kind === 'link'" class="work-link">
+              {{ caption(work) }} —
+              <a :href="work.href" target="_blank" rel="noopener">{{ c.works.videoLinkLabel }}</a>
+            </p>
 
             <button v-else type="button" class="thumb" @click="openWork(work)">
               <ResponsiveImage
@@ -212,6 +225,16 @@ function openWork(work: Work) {
 
 .grid > li {
   height: var(--h);
+}
+
+.work-link {
+  margin: 0;
+  line-height: var(--lh-body);
+}
+
+.work-link a {
+  color: inherit;
+  text-decoration: underline;
 }
 
 .grid :deep(img),

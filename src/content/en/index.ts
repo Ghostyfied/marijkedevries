@@ -36,6 +36,7 @@ export const en: SiteContent = {
     stripLabel: 'Works in this series',
     workWord: 'work',
     fromSeries: 'from the series',
+    videoLinkLabel: 'Watch the video on Instagram',
   },
   series: {
     recentHeading: 'recent work (2021-2026)',
