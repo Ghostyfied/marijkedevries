@@ -285,7 +285,7 @@ export const series: Series[] = [
             "kind": "link",
             "href": "https://www.instagram.com/p/DdJm4zquVti/",
             "title": "Installatie Tinder Times Project",
-            "medium": "various works and 'peepshow'",
+            "medium": "diverse werken en 'peepshow'",
             "year": 2020
           }
         ]

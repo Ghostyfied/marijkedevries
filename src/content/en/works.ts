@@ -16,4 +16,15 @@ const titles: Record<string, string> = {
 export const series: Series[] = nlSeries.map((s) => ({
   ...s,
   title: titles[s.id] ?? s.title,
+  // The 2020 entry is a sentence rather than an artwork title, so unlike the
+  // work titles it is translated: the Dutch page reads fully Dutch, this one
+  // fully English.
+  groups: s.groups.map((g) => ({
+    ...g,
+    works: g.works.map((w) =>
+      w.kind === 'link' && w.title === 'Installatie Tinder Times Project'
+        ? { ...w, title: 'Installation Tinder Times Project', medium: "various works and 'peepshow'" }
+        : w,
+    ),
+  })),
 }))
