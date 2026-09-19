@@ -37,6 +37,7 @@ export const nl: SiteContent = {
     stripLabel: 'Werken in deze serie',
     workWord: 'werk',
     fromSeries: 'uit de serie',
+    videoLinkLabel: 'Bekijk het filmpje op Instagram',
   },
   series: {
     recentHeading: 'recent werk (2021-2026)',

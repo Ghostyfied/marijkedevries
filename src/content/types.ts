@@ -28,10 +28,20 @@ export interface WorkVideo {
   src: string
 }
 
+/** A work shown as a caption plus an external link — no image on the page. */
+export interface WorkLink {
+  kind: 'link'
+  href: string
+  title: string
+  medium?: string
+  dimensions?: string
+  year?: number
+}
+
 export interface Group {
   /** Sub-heading inside a series, e.g. "works on canvas". */
   label?: string
-  works: (Work | WorkVideo)[]
+  works: (Work | WorkVideo | WorkLink)[]
 }
 
 export interface Series {
@@ -112,6 +122,8 @@ export interface SiteContent {
     workWord: string
     /** "uit de serie"/"from the series" — ditto. */
     fromSeries: string
+    /** Anchor text for kind:'link' works, e.g. "Bekijk het filmpje op Instagram". */
+    videoLinkLabel: string
   }
   series: {
     /** The heading of the placeholder section above the essays. */

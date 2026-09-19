@@ -15,6 +15,298 @@
 import type { Series } from '../types'
 
 export const series: Series[] = [
+  /*
+   * Recent work by year, newest first — from Marijke's overview spreadsheet of
+   * 14 September 2026 (Overzicht_kunstwerken26_voor_website.xlsx). Order within
+   * a year follows the spreadsheet. The 2020 entry is, per her instruction, a
+   * link to an Instagram video rather than an image.
+   */
+  {
+    "title": "2026",
+    "id": "werk-2026",
+    "groups": [
+      {
+        "works": [
+          {
+            "kind": "image",
+            "image": "recent/Sister, sister.png",
+            "displayHeight": 250,
+            "title": "Sister, sister",
+            "medium": "oil and mixed media on canvas",
+            "dimensions": "70 x 90",
+            "year": 2026
+          },
+          {
+            "kind": "image",
+            "image": "recent/Gaining my senses.png",
+            "displayHeight": 195,
+            "title": "Gaining my senses",
+            "medium": "oil and mixed media on canvas",
+            "dimensions": "24 x 30",
+            "year": 2026
+          },
+          {
+            "kind": "image",
+            "image": "recent/onderwereld.png",
+            "displayHeight": 195,
+            "title": "onderwereld",
+            "medium": "oil and mixed media on canvas",
+            "dimensions": "24 x 30",
+            "year": 2026
+          },
+          {
+            "kind": "image",
+            "image": "recent/I am your mirror.png",
+            "displayHeight": 220,
+            "title": "I am your mirror",
+            "medium": "oil and mixed media on mirror",
+            "dimensions": "45 x 45",
+            "year": 2026
+          },
+          {
+            "kind": "image",
+            "image": "recent/het schimmenrijk.png",
+            "displayHeight": 250,
+            "title": "het schimmenrijk",
+            "medium": "oil and mixed media on canvas",
+            "dimensions": "70 x 90",
+            "year": 2026
+          },
+          {
+            "kind": "image",
+            "image": "recent/casita.png",
+            "displayHeight": 195,
+            "title": "casita",
+            "medium": "oil on canvas",
+            "dimensions": "24 x 30",
+            "year": 2026
+          },
+          {
+            "kind": "image",
+            "image": "recent/bloesempark.png",
+            "displayHeight": 240,
+            "title": "bloesempark",
+            "medium": "oil and mixed media on canvas",
+            "dimensions": "80 x 80",
+            "year": 2026
+          },
+          {
+            "kind": "image",
+            "image": "recent/Henkie.png",
+            "displayHeight": 185,
+            "title": "Henkie",
+            "medium": "oil on canvas",
+            "dimensions": "20 x 30",
+            "year": 2026
+          },
+          {
+            "kind": "image",
+            "image": "recent/smokers.png",
+            "displayHeight": 185,
+            "title": "smokers",
+            "medium": "oil and mixed media on canvas",
+            "dimensions": "20 x 30",
+            "year": 2026
+          },
+          {
+            "kind": "image",
+            "image": "recent/Eva.png",
+            "displayHeight": 170,
+            "title": "Eva",
+            "medium": "oil on canvas",
+            "dimensions": "18 x 24",
+            "year": 2026
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "2025",
+    "id": "werk-2025",
+    "groups": [
+      {
+        "works": [
+          {
+            "kind": "image",
+            "image": "recent/Wedding vows.png",
+            "displayHeight": 195,
+            "title": "Wedding vows",
+            "medium": "oil on canvas",
+            "dimensions": "24 x 30",
+            "year": 2025
+          },
+          {
+            "kind": "image",
+            "image": "recent/a visit to the dentist.png",
+            "displayHeight": 220,
+            "title": "a visit to the dentist",
+            "medium": "oil and mixed media on canvas",
+            "dimensions": "40 x 50",
+            "year": 2025
+          },
+          {
+            "kind": "image",
+            "image": "recent/hosting my ghosts.png",
+            "displayHeight": 250,
+            "title": "hosting my ghosts",
+            "medium": "oil and mixed media on canvas",
+            "dimensions": "80 x 60",
+            "year": 2025
+          },
+          {
+            "kind": "image",
+            "image": "recent/smoker small.png",
+            "displayHeight": 175,
+            "title": "smoker small",
+            "medium": "oil and charcoal on canvas",
+            "dimensions": "18 x 24",
+            "year": 2025
+          },
+          {
+            "kind": "image",
+            "image": "recent/la fumeuse.png",
+            "displayHeight": 260,
+            "title": "la fumeuse",
+            "medium": "oil and mixed media on canvas",
+            "dimensions": "120 x 120",
+            "year": 2025
+          },
+          {
+            "kind": "image",
+            "image": "recent/digging.png",
+            "displayHeight": 250,
+            "title": "digging",
+            "medium": "oil and mixed media on canvas",
+            "dimensions": "60 x 110",
+            "year": 2025
+          },
+          /*
+           * "in Buenos Aires with pneumonia" (oil and mixed media on canvas,
+           * 120 x 120, 2025) belongs here — photo not yet supplied. Only a
+           * cropped Instagram version exists; awaiting the real file.
+           */
+          {
+            "kind": "image",
+            "image": "recent/dwaler.png",
+            "displayHeight": 195,
+            "title": "dwaler",
+            "medium": "oil and mixed media on canvas",
+            "dimensions": "24 x 30",
+            "year": 2025
+          },
+          {
+            "kind": "image",
+            "image": "recent/Icarus.png",
+            "displayHeight": 260,
+            "title": "Icarus",
+            "medium": "oil and mixed media on perspex",
+            "dimensions": "100 x 140",
+            "year": 2025
+          },
+          {
+            "kind": "image",
+            "image": "recent/Gitana Russa.png",
+            "displayHeight": 175,
+            "title": "Gitana Russa",
+            "medium": "pen, gouache on book page",
+            "dimensions": "15 x 23",
+            "year": 2025
+          },
+          {
+            "kind": "image",
+            "image": "recent/abrazo (detail).png",
+            "displayHeight": 220,
+            "title": "abrazo (detail)",
+            "medium": "oil and mixed media on canvas",
+            "year": 2025
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "2024",
+    "id": "werk-2024",
+    "groups": [
+      {
+        "works": [
+          {
+            "kind": "image",
+            "image": "recent/Tribute to Anja.png",
+            "displayHeight": 185,
+            "title": "Tribute to Anja",
+            "medium": "oil and mixed media on canvas",
+            "dimensions": "20 x 30",
+            "year": 2024
+          },
+          {
+            "kind": "image",
+            "image": "recent/Parque de los inmigrantes de Armenia.png",
+            "displayHeight": 195,
+            "title": "Parque de los inmigrantes de Armenia",
+            "medium": "oil and mixed media on canvas",
+            "dimensions": "24 x 30",
+            "year": 2024
+          },
+          {
+            "kind": "image",
+            "image": "recent/El Beso.png",
+            "displayHeight": 175,
+            "title": "El Beso",
+            "medium": "oil on canvas",
+            "dimensions": "18 x 24",
+            "year": 2024
+          },
+          {
+            "kind": "image",
+            "image": "recent/Dance couple in orange.png",
+            "displayHeight": 185,
+            "title": "Dance couple in orange",
+            "medium": "oil and mixed media on canvas",
+            "dimensions": "20 x 30",
+            "year": 2024
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "2020",
+    "id": "werk-2020",
+    "groups": [
+      {
+        "works": [
+          {
+            "kind": "link",
+            "href": "https://www.instagram.com/p/DdJm4zquVti/",
+            "title": "Installatie Tinder Times Project",
+            "medium": "various works and 'peepshow'",
+            "year": 2020
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "2019",
+    "id": "werk-2019",
+    "groups": [
+      {
+        "works": [
+          {
+            "kind": "image",
+            "image": "recent/Dress.png",
+            "displayHeight": 250,
+            "title": "Dress",
+            "medium": "oil and mixed media on canvas",
+            "dimensions": "80 x 110",
+            "year": 2019
+          }
+        ]
+      }
+    ]
+  },
   {
     "title": "Liefde in tijden van Corona (2020)",
     "id": "liefde-in-tijden-van-corona-2020",
