@@ -29,7 +29,7 @@ export const series: Series[] = [
         "works": [
           {
             "kind": "image",
-            "image": "recent/Sister, sister.png",
+            "image": "recent/Sister, sister.jpg",
             "displayHeight": 250,
             "title": "Sister, sister",
             "medium": "oil and mixed media on canvas",
@@ -38,7 +38,7 @@ export const series: Series[] = [
           },
           {
             "kind": "image",
-            "image": "recent/Gaining my senses.png",
+            "image": "recent/Gaining my senses.jpg",
             "displayHeight": 195,
             "title": "Gaining my senses",
             "medium": "oil and mixed media on canvas",
@@ -47,7 +47,7 @@ export const series: Series[] = [
           },
           {
             "kind": "image",
-            "image": "recent/onderwereld.png",
+            "image": "recent/onderwereld.jpg",
             "displayHeight": 195,
             "title": "onderwereld",
             "medium": "oil and mixed media on canvas",
@@ -56,7 +56,7 @@ export const series: Series[] = [
           },
           {
             "kind": "image",
-            "image": "recent/I am your mirror.png",
+            "image": "recent/I am your mirror.jpg",
             "displayHeight": 220,
             "title": "I am your mirror",
             "medium": "oil and mixed media on mirror",
@@ -65,7 +65,7 @@ export const series: Series[] = [
           },
           {
             "kind": "image",
-            "image": "recent/het schimmenrijk.png",
+            "image": "recent/het schimmenrijk.jpg",
             "displayHeight": 250,
             "title": "het schimmenrijk",
             "medium": "oil and mixed media on canvas",
@@ -74,7 +74,7 @@ export const series: Series[] = [
           },
           {
             "kind": "image",
-            "image": "recent/casita.png",
+            "image": "recent/casita.jpg",
             "displayHeight": 195,
             "title": "casita",
             "medium": "oil on canvas",
@@ -83,7 +83,7 @@ export const series: Series[] = [
           },
           {
             "kind": "image",
-            "image": "recent/bloesempark.png",
+            "image": "recent/bloesempark.jpg",
             "displayHeight": 240,
             "title": "bloesempark",
             "medium": "oil and mixed media on canvas",
@@ -92,7 +92,7 @@ export const series: Series[] = [
           },
           {
             "kind": "image",
-            "image": "recent/Henkie.png",
+            "image": "recent/Henkie.jpg",
             "displayHeight": 185,
             "title": "Henkie",
             "medium": "oil on canvas",
@@ -101,7 +101,7 @@ export const series: Series[] = [
           },
           {
             "kind": "image",
-            "image": "recent/smokers.png",
+            "image": "recent/smokers.jpg",
             "displayHeight": 185,
             "title": "smokers",
             "medium": "oil and mixed media on canvas",
@@ -110,7 +110,7 @@ export const series: Series[] = [
           },
           {
             "kind": "image",
-            "image": "recent/Eva.png",
+            "image": "recent/Eva.jpg",
             "displayHeight": 170,
             "title": "Eva",
             "medium": "oil on canvas",
@@ -138,7 +138,7 @@ export const series: Series[] = [
           },
           {
             "kind": "image",
-            "image": "recent/a visit to the dentist.png",
+            "image": "recent/a visit to the dentist.jpg",
             "displayHeight": 220,
             "title": "a visit to the dentist",
             "medium": "oil and mixed media on canvas",
@@ -147,7 +147,7 @@ export const series: Series[] = [
           },
           {
             "kind": "image",
-            "image": "recent/hosting my ghosts.png",
+            "image": "recent/hosting my ghosts.jpg",
             "displayHeight": 250,
             "title": "hosting my ghosts",
             "medium": "oil and mixed media on canvas",
@@ -156,7 +156,7 @@ export const series: Series[] = [
           },
           {
             "kind": "image",
-            "image": "recent/smoker small.png",
+            "image": "recent/smoker small.jpg",
             "displayHeight": 175,
             "title": "smoker small",
             "medium": "oil and charcoal on canvas",
@@ -174,21 +174,25 @@ export const series: Series[] = [
           },
           {
             "kind": "image",
-            "image": "recent/digging.png",
+            "image": "recent/digging.jpg",
             "displayHeight": 250,
             "title": "digging",
             "medium": "oil and mixed media on canvas",
             "dimensions": "60 x 110",
             "year": 2025
           },
-          /*
-           * "in Buenos Aires with pneumonia" (oil and mixed media on canvas,
-           * 120 x 120, 2025) belongs here — photo not yet supplied. Only a
-           * cropped Instagram version exists; awaiting the real file.
-           */
           {
             "kind": "image",
-            "image": "recent/dwaler.png",
+            "image": "recent/in Buenos Aires with pneumonia.jpg",
+            "displayHeight": 260,
+            "title": "in Buenos Aires with pneumonia",
+            "medium": "oil and mixed media on canvas",
+            "dimensions": "120 x 120",
+            "year": 2025
+          },
+          {
+            "kind": "image",
+            "image": "recent/dwaler.jpg",
             "displayHeight": 195,
             "title": "dwaler",
             "medium": "oil and mixed media on canvas",
@@ -197,7 +201,7 @@ export const series: Series[] = [
           },
           {
             "kind": "image",
-            "image": "recent/Icarus.png",
+            "image": "recent/Icarus.jpg",
             "displayHeight": 260,
             "title": "Icarus",
             "medium": "oil and mixed media on perspex",
@@ -215,7 +219,7 @@ export const series: Series[] = [
           },
           {
             "kind": "image",
-            "image": "recent/abrazo (detail).png",
+            "image": "recent/abrazo (detail).jpg",
             "displayHeight": 220,
             "title": "abrazo (detail)",
             "medium": "oil and mixed media on canvas",
@@ -233,7 +237,7 @@ export const series: Series[] = [
         "works": [
           {
             "kind": "image",
-            "image": "recent/Tribute to Anja.png",
+            "image": "recent/Tribute to Anja.jpg",
             "displayHeight": 185,
             "title": "Tribute to Anja",
             "medium": "oil and mixed media on canvas",
@@ -242,7 +246,7 @@ export const series: Series[] = [
           },
           {
             "kind": "image",
-            "image": "recent/Parque de los inmigrantes de Armenia.png",
+            "image": "recent/Parque de los inmigrantes de Armenia.jpg",
             "displayHeight": 195,
             "title": "Parque de los inmigrantes de Armenia",
             "medium": "oil and mixed media on canvas",
@@ -251,7 +255,7 @@ export const series: Series[] = [
           },
           {
             "kind": "image",
-            "image": "recent/El Beso.png",
+            "image": "recent/El Beso.jpg",
             "displayHeight": 175,
             "title": "El Beso",
             "medium": "oil on canvas",
@@ -260,7 +264,7 @@ export const series: Series[] = [
           },
           {
             "kind": "image",
-            "image": "recent/Dance couple in orange.png",
+            "image": "recent/Dance couple in orange.jpg",
             "displayHeight": 185,
             "title": "Dance couple in orange",
             "medium": "oil and mixed media on canvas",

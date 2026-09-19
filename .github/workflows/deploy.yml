@@ -69,7 +69,7 @@ jobs:
           done
           test -s dist/CNAME || { echo "missing dist/CNAME"; exit 1; }
           count=$(grep -o '<picture' dist/werken.html | wc -l)
-          test "$count" -eq 59 || { echo "expected 59 works, found $count"; exit 1; }
+          test "$count" -eq 60 || { echo "expected 60 works, found $count"; exit 1; }
 
       - uses: actions/upload-pages-artifact@v3
         with:
