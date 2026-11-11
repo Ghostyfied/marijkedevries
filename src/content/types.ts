@@ -69,6 +69,8 @@ export interface Link {
   href: string
   label: string
   description: string
+  /** When set, an embedded YouTube player renders under the link. */
+  youtubeId?: string
 }
 
 export interface ContactDetail {

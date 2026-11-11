@@ -11,6 +11,20 @@ const { c } = useLocale()
       <li v-for="link in c.links" :key="link.href">
         <a :href="link.href" target="_blank" rel="noopener">{{ link.label }}</a>
         <span v-if="link.description"> — {{ link.description }}</span>
+        <!--
+          youtube-nocookie keeps YouTube from setting tracking cookies until
+          the visitor actually plays the video; lazy loading keeps the iframe
+          from costing anything on page load.
+        -->
+        <iframe
+          v-if="link.youtubeId"
+          class="video-embed"
+          :src="`https://www.youtube-nocookie.com/embed/${link.youtubeId}`"
+          :title="link.label"
+          loading="lazy"
+          allow="encrypted-media; fullscreen; picture-in-picture"
+          allowfullscreen
+        ></iframe>
       </li>
     </ul>
   </div>
@@ -34,5 +48,14 @@ const { c } = useLocale()
 
 .link-list li {
   margin-bottom: 1.4em;
+}
+
+.video-embed {
+  display: block;
+  margin-top: 0.8em;
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: 16 / 9;
+  border: 0;
 }
 </style>
