@@ -29,6 +29,15 @@ export const series: Series[] = [
         "works": [
           {
             "kind": "image",
+            "image": "recent/Inherited weight.jpg",
+            "displayHeight": 230,
+            "title": "Inherited weight",
+            "medium": "mixed media on canvas",
+            "dimensions": "40 x 60",
+            "year": 2026
+          },
+          {
+            "kind": "image",
             "image": "recent/Sister, sister.jpg",
             "displayHeight": 250,
             "title": "Sister, sister",

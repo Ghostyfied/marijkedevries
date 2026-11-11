@@ -11,7 +11,7 @@ export const links: Link[] = [
   {
     href: 'https://www.youtube.com/watch?v=b5a8Lbj2COI',
     label: 'Panta Rei',
-    description: 'videoclip op YouTube',
+    description: 'videoclip op YouTube, die te zien was in theater de Melkweg',
     youtubeId: 'b5a8Lbj2COI',
   },
   {
